@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		097996A2DF40931944129641 /* Pods_BlockoneLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C69EA8B089429212850009 /* Pods_BlockoneLab.framework */; };
+		D1FBCDEE213772FF0021FA2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDED213772FF0021FA2B /* AppDelegate.swift */; };
+		D1FBCDF1213772FF0021FA2B /* BlockoneLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDEF213772FF0021FA2B /* BlockoneLab.xcdatamodeld */; };
+		D1FBCDF3213772FF0021FA2B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDF2213772FF0021FA2B /* MasterViewController.swift */; };
+		D1FBCDF5213772FF0021FA2B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDF4213772FF0021FA2B /* DetailViewController.swift */; };
+		D1FBCDF8213772FF0021FA2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDF6213772FF0021FA2B /* Main.storyboard */; };
+		D1FBCDFA213773010021FA2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDF9213773010021FA2B /* Assets.xcassets */; };
+		D1FBCDFD213773010021FA2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDFB213773010021FA2B /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6580AC54DA0D947C615C2BD1 /* Pods-BlockoneLab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockoneLab.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlockoneLab/Pods-BlockoneLab.release.xcconfig"; sourceTree = "<group>"; };
+		6638A0BFC1247E6DF8E23FA6 /* Pods-BlockoneLab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockoneLab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockoneLab/Pods-BlockoneLab.debug.xcconfig"; sourceTree = "<group>"; };
+		71C69EA8B089429212850009 /* Pods_BlockoneLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockoneLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1FBCDEA213772FF0021FA2B /* BlockoneLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockoneLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1FBCDED213772FF0021FA2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D1FBCDF0213772FF0021FA2B /* BlockoneLab.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlockoneLab.xcdatamodel; sourceTree = "<group>"; };
+		D1FBCDF2213772FF0021FA2B /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		D1FBCDF4213772FF0021FA2B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D1FBCDF7213772FF0021FA2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D1FBCDF9213773010021FA2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D1FBCDFC213773010021FA2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D1FBCDFE213773010021FA2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D1FBCDE7213772FF0021FA2B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				097996A2DF40931944129641 /* Pods_BlockoneLab.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2A39228CBB196BB24158E4C8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6638A0BFC1247E6DF8E23FA6 /* Pods-BlockoneLab.debug.xcconfig */,
+				6580AC54DA0D947C615C2BD1 /* Pods-BlockoneLab.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7BBD763E662374A13554FBF5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				71C69EA8B089429212850009 /* Pods_BlockoneLab.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D1FBCDE1213772FF0021FA2B = {
+			isa = PBXGroup;
+			children = (
+				D1FBCDEC213772FF0021FA2B /* BlockoneLab */,
+				D1FBCDEB213772FF0021FA2B /* Products */,
+				2A39228CBB196BB24158E4C8 /* Pods */,
+				7BBD763E662374A13554FBF5 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D1FBCDEB213772FF0021FA2B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCDEA213772FF0021FA2B /* BlockoneLab.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D1FBCDEC213772FF0021FA2B /* BlockoneLab */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCDED213772FF0021FA2B /* AppDelegate.swift */,
+				D1FBCDF2213772FF0021FA2B /* MasterViewController.swift */,
+				D1FBCDF4213772FF0021FA2B /* DetailViewController.swift */,
+				D1FBCDF6213772FF0021FA2B /* Main.storyboard */,
+				D1FBCDF9213773010021FA2B /* Assets.xcassets */,
+				D1FBCDFB213773010021FA2B /* LaunchScreen.storyboard */,
+				D1FBCDFE213773010021FA2B /* Info.plist */,
+				D1FBCDEF213772FF0021FA2B /* BlockoneLab.xcdatamodeld */,
+			);
+			path = BlockoneLab;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D1FBCDE9213772FF0021FA2B /* BlockoneLab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D1FBCE01213773010021FA2B /* Build configuration list for PBXNativeTarget "BlockoneLab" */;
+			buildPhases = (
+				6B2445725BA1EAF353BBB9C5 /* [CP] Check Pods Manifest.lock */,
+				D1FBCDE6213772FF0021FA2B /* Sources */,
+				D1FBCDE7213772FF0021FA2B /* Frameworks */,
+				D1FBCDE8213772FF0021FA2B /* Resources */,
+				916C728C61490E15BD1F5A5D /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BlockoneLab;
+			productName = BlockoneLab;
+			productReference = D1FBCDEA213772FF0021FA2B /* BlockoneLab.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D1FBCDE2213772FF0021FA2B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Gigabit LLC";
+				TargetAttributes = {
+					D1FBCDE9213772FF0021FA2B = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = D1FBCDE5213772FF0021FA2B /* Build configuration list for PBXProject "BlockoneLab" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D1FBCDE1213772FF0021FA2B;
+			productRefGroup = D1FBCDEB213772FF0021FA2B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D1FBCDE9213772FF0021FA2B /* BlockoneLab */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D1FBCDE8213772FF0021FA2B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1FBCDFD213773010021FA2B /* LaunchScreen.storyboard in Resources */,
+				D1FBCDFA213773010021FA2B /* Assets.xcassets in Resources */,
+				D1FBCDF8213772FF0021FA2B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6B2445725BA1EAF353BBB9C5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlockoneLab-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		916C728C61490E15BD1F5A5D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BlockoneLab/Pods-BlockoneLab-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MagicalRecord/MagicalRecord.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MagicalRecord.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlockoneLab/Pods-BlockoneLab-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D1FBCDE6213772FF0021FA2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D1FBCDF1213772FF0021FA2B /* BlockoneLab.xcdatamodeld in Sources */,
+				D1FBCDEE213772FF0021FA2B /* AppDelegate.swift in Sources */,
+				D1FBCDF3213772FF0021FA2B /* MasterViewController.swift in Sources */,
+				D1FBCDF5213772FF0021FA2B /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		D1FBCDF6213772FF0021FA2B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1FBCDF7213772FF0021FA2B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D1FBCDFB213773010021FA2B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D1FBCDFC213773010021FA2B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D1FBCDFF213773010021FA2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D1FBCE00213773010021FA2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D1FBCE02213773010021FA2B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6638A0BFC1247E6DF8E23FA6 /* Pods-BlockoneLab.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MX6EDE7QQU;
+				INFOPLIST_FILE = BlockoneLab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.blockone.BlockoneLab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D1FBCE03213773010021FA2B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6580AC54DA0D947C615C2BD1 /* Pods-BlockoneLab.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MX6EDE7QQU;
+				INFOPLIST_FILE = BlockoneLab/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.blockone.BlockoneLab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D1FBCDE5213772FF0021FA2B /* Build configuration list for PBXProject "BlockoneLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1FBCDFF213773010021FA2B /* Debug */,
+				D1FBCE00213773010021FA2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D1FBCE01213773010021FA2B /* Build configuration list for PBXNativeTarget "BlockoneLab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D1FBCE02213773010021FA2B /* Debug */,
+				D1FBCE03213773010021FA2B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D1FBCDEF213772FF0021FA2B /* BlockoneLab.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D1FBCDF0213772FF0021FA2B /* BlockoneLab.xcdatamodel */,
+			);
+			currentVersion = D1FBCDF0213772FF0021FA2B /* BlockoneLab.xcdatamodel */;
+			path = BlockoneLab.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D1FBCDE2213772FF0021FA2B /* Project object */;
+}
