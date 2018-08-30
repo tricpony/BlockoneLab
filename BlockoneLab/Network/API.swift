@@ -19,4 +19,15 @@ enum API_Method: String {
 
 struct API {
     static let endPoint = "https://api.eosnewyork.io/v1/chain/"
+    static let formatter = DateFormatter()
+    
+    static func dateFormatter() -> DateFormatter {
+        // "timestamp": "2018-08-30T14:07:59.500"
+        if self.formatter.dateFormat.isEmpty {
+            self.formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+            self.formatter.timeZone = TimeZone(abbreviation: "GMT+0:00")
+        }
+        return self.formatter
+    }
+
 }

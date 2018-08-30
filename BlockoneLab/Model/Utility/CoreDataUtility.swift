@@ -20,7 +20,7 @@ class CoreDataUtility {
     
     class func fetchRequestForAllBlocks(ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
         let fetchRequest = Block.mr_createFetchRequest(in: ctx)
-        let sortOrder = NSSortDescriptor.init(key: "createDate", ascending: false)
+        let sortOrder = NSSortDescriptor.init(key: "blockTimestamp", ascending: false)
         
         fetchRequest.sortDescriptors = [sortOrder]
         return fetchRequest

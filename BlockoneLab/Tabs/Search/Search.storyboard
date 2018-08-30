@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1bH-TA-vM8">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
@@ -29,7 +29,7 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cxF-zR-ghk">
-                                <rect key="frame" x="153.5" y="352" width="68.5" height="27.5"/>
+                                <rect key="frame" x="153.5" y="327.5" width="68.5" height="27.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-MediumItalic" family="Helvetica Neue" pointSize="23"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -62,11 +62,13 @@
             </objects>
             <point key="canvasLocation" x="1104.8" y="211.84407796101951"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Search-->
         <scene sceneID="CgM-Ib-A3s">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ynq-EJ-D03" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Search" image="icon_search" id="n29-TR-ncg"/>
                     <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uic-4x-FgG">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -81,4 +83,7 @@
             <point key="canvasLocation" x="165.59999999999999" y="211.84407796101951"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_search" width="30" height="30"/>
+    </resources>
 </document>

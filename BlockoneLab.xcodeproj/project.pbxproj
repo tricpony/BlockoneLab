@@ -33,6 +33,8 @@
 		D1FBCE38213790BD0021FA2B /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE37213790BC0021FA2B /* DeviceType.swift */; };
 		D1FBCE3A2137916E0021FA2B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE392137916E0021FA2B /* DetailViewController.swift */; };
 		D1FBCE3C213791820021FA2B /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCE3B213791820021FA2B /* Detail.storyboard */; };
+		D1FBCE402137FD100021FA2B /* BlockTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE3E2137FD100021FA2B /* BlockTableCell.swift */; };
+		D1FBCE412137FD100021FA2B /* BlockTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCE3F2137FD100021FA2B /* BlockTableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		D1FBCE37213790BC0021FA2B /* DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
 		D1FBCE392137916E0021FA2B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D1FBCE3B213791820021FA2B /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
+		D1FBCE3E2137FD100021FA2B /* BlockTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockTableCell.swift; sourceTree = "<group>"; };
+		D1FBCE3F2137FD100021FA2B /* BlockTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BlockTableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +166,7 @@
 		D1FBCE0B21377A6C0021FA2B /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				D1FBCE3D2137FCC80021FA2B /* TableAssets */,
 				D1FBCE1E21377CF70021FA2B /* SearchViewController.swift */,
 				D1FBCE2021377D4E0021FA2B /* Search.storyboard */,
 				D1FBCE0C21377A6C0021FA2B /* Detail */,
@@ -238,6 +243,15 @@
 			path = Global;
 			sourceTree = "<group>";
 		};
+		D1FBCE3D2137FCC80021FA2B /* TableAssets */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE3E2137FD100021FA2B /* BlockTableCell.swift */,
+				D1FBCE3F2137FD100021FA2B /* BlockTableCell.xib */,
+			);
+			path = TableAssets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -302,6 +316,7 @@
 				D1FBCDFA213773010021FA2B /* Assets.xcassets in Resources */,
 				D1FBCE2121377D4E0021FA2B /* Search.storyboard in Resources */,
 				D1FBCE3C213791820021FA2B /* Detail.storyboard in Resources */,
+				D1FBCE412137FD100021FA2B /* BlockTableCell.xib in Resources */,
 				D1FBCDF8213772FF0021FA2B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +377,7 @@
 				D1FBCE3A2137916E0021FA2B /* DetailViewController.swift in Sources */,
 				D1FBCE2721378A060021FA2B /* Block+CoreDataProperties.swift in Sources */,
 				D1FBCE1921377A6D0021FA2B /* BaseViewController.swift in Sources */,
+				D1FBCE402137FD100021FA2B /* BlockTableCell.swift in Sources */,
 				D1FBCE1721377A6D0021FA2B /* ServiceManager.swift in Sources */,
 				D1FBCE1A21377A6D0021FA2B /* SplitViewController.swift in Sources */,
 				D1FBCE3321378A170021FA2B /* CycleSummary+CoreDataClass.swift in Sources */,

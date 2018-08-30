@@ -13,6 +13,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
     @IBOutlet weak var emptyResultsLabel: UILabel!
     let pinwheel = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    var isLoading = false
     lazy var unfilteredFetchedResultsController: NSFetchedResultsController<Block> = {
         let fetchRequest = CoreDataUtility.fetchRequestForAllBlocks(ctx: self.managedObjectContext)
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
@@ -30,16 +31,30 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         
         return aFetchedResultsController as! NSFetchedResultsController<Block>
     }()
-
+    lazy var dateFormatter: DateFormatter = {
+        var formatter = DateFormatter()
+        
+        formatter.dateFormat = "EEE, MMM d, hh:mm:ss aaa"
+        return formatter
+    }()
+    
     func loadServiceActivityIndicator() {
         let activityButton = UIBarButtonItem(customView: self.pinwheel)
         self.navigationItem.leftBarButtonItem = activityButton
         self.pinwheel.isHidden = true
     }
     
+    func registerTableAssets() {
+        var nib: UINib!
+        
+        nib = UINib.init(nibName: "BlockTableCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: BlockTableCell.cell_id)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadServiceActivityIndicator()
+        self.registerTableAssets()
         
         //enable auto cell height that uses constraints
         self.tableView.rowHeight = UITableViewAutomaticDimension
@@ -51,10 +66,16 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         self.emptyResultsLabel.isHidden = CoreDataUtility.fetchBlockCount(in: self.managedObjectContext) > 0
         
         //fetch block chain data
-        self.performBlockChainInfoService()
+        self.performGetBlockChainInfoService()
     }
 
-    func performBlockChainInfoService() {
+    func displayDateValue(_ date: Date) -> String {
+        return self.dateFormatter.string(from: date)
+    }
+    
+    // MARK: - EOS API Service Calls
+
+    func performGetBlockChainInfoService() {
         let serviceRequest = ServiceManager()
 
         serviceRequest.startService(forMethod: .get_info, args: nil) { (error: Error?, payload: Dictionary<String,Any>?) in
@@ -90,6 +111,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         self.pinwheel.isHidden = false
         self.pinwheel.startAnimating()
         self.refreshBarButton.isEnabled = false
+        self.isLoading = true
 
         DispatchQueue.global(qos: .background).async {
             let ctx = NSManagedObjectContext.mr_context(withParent: self.managedObjectContext)
@@ -100,8 +122,10 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     func performGetBlockService(howMany: Int8, hash: String, inContext ctx: NSManagedObjectContext) {
         if howMany == 0 {
             DispatchQueue.main.async {
+                self.isLoading = false
                 self.pinwheel.stopAnimating();
                 self.refreshBarButton.isEnabled = true
+                self.tableView.reloadData()
             }
             return
         }
@@ -128,13 +152,13 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
             }
         })
     }
+    
+    // MARK: - NSFetchedResultsControllerDelegate
 
     func fetchedResultsController() -> NSFetchedResultsController<Block> {
         return unfilteredFetchedResultsController
     }
-    
-    // MARK: - NSFetchedResultsControllerDelegate
-    
+
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.beginUpdates()
     }
@@ -159,7 +183,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     // MARK: - Table View
     
     func cellIdentifier(at indexPath: IndexPath) -> String {
-        return "BlockCell"
+        return BlockTableCell.cell_id
     }
     
     func nextCellForTableView(_ tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
@@ -182,16 +206,25 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.nextCellForTableView(tableView, at: indexPath)
+        let cell: BlockTableCell = self.nextCellForTableView(tableView, at: indexPath) as! BlockTableCell
         let block: Block = fetchedResultsController().object(at: indexPath)
         
-        cell.textLabel!.text = String(indexPath.row+1) + " " + (block.producer ?? "Producer Unknown")
+        cell.producerLabel.text = (block.producer ?? "Unknown")
+        cell.dateLabel.text = self.displayDateValue(block.blockTimestamp! as Date)
+        cell.statusLabel.text = "5 regions"
+        if !self.isLoading {
+            cell.countLabel.text = String(indexPath.row+1)
+        }
+        else{
+            cell.countLabel.text = ""
+        }
+        
         cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if self.splitViewController?.traitCollection.horizontalSizeClass == .compact {
+        if self.sizeClass().horizontal == .compact {
             tableView.deselectRow(at: indexPath, animated: true)
         }
     }

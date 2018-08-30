@@ -63,6 +63,10 @@ public class Block: NSManagedObject {
         block?.scheduleVersion = (blockInfo["schedule_version"] as? Int16)!
         block?.producerSignature = blockInfo["producer_signature"] as? String
         
+        if let time = blockInfo["timestamp"] as? String {
+            block?.blockTimestamp = API.dateFormatter().date(from: time) as NSDate?
+        }
+        
         //save it
         ctx.mr_saveToPersistentStoreAndWait()
 
