@@ -8,13 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		097996A2DF40931944129641 /* Pods_BlockoneLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C69EA8B089429212850009 /* Pods_BlockoneLab.framework */; };
-		D1FBCDEE213772FF0021FA2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDED213772FF0021FA2B /* AppDelegate.swift */; };
-		D1FBCDF1213772FF0021FA2B /* BlockoneLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDEF213772FF0021FA2B /* BlockoneLab.xcdatamodeld */; };
-		D1FBCDF3213772FF0021FA2B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDF2213772FF0021FA2B /* MasterViewController.swift */; };
-		D1FBCDF5213772FF0021FA2B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCDF4213772FF0021FA2B /* DetailViewController.swift */; };
 		D1FBCDF8213772FF0021FA2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDF6213772FF0021FA2B /* Main.storyboard */; };
 		D1FBCDFA213773010021FA2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDF9213773010021FA2B /* Assets.xcassets */; };
 		D1FBCDFD213773010021FA2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDFB213773010021FA2B /* LaunchScreen.storyboard */; };
+		D1FBCE0621377A5B0021FA2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE0521377A5B0021FA2B /* AppDelegate.swift */; };
+		D1FBCE1721377A6D0021FA2B /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE0821377A6C0021FA2B /* ServiceManager.swift */; };
+		D1FBCE1821377A6D0021FA2B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE0921377A6C0021FA2B /* API.swift */; };
+		D1FBCE1921377A6D0021FA2B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE0E21377A6C0021FA2B /* BaseViewController.swift */; };
+		D1FBCE1A21377A6D0021FA2B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE0F21377A6C0021FA2B /* SplitViewController.swift */; };
+		D1FBCE1B21377A6D0021FA2B /* BlockoneLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE1221377A6D0021FA2B /* BlockoneLab.xcdatamodeld */; };
+		D1FBCE1C21377A6D0021FA2B /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE1621377A6D0021FA2B /* CoreDataUtility.swift */; };
+		D1FBCE1F21377CF70021FA2B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE1E21377CF70021FA2B /* SearchViewController.swift */; };
+		D1FBCE2121377D4E0021FA2B /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCE2021377D4E0021FA2B /* Search.storyboard */; };
+		D1FBCE2721378A060021FA2B /* Block+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2221378A060021FA2B /* Block+CoreDataProperties.swift */; };
+		D1FBCE2821378A060021FA2B /* CycleSummary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2321378A060021FA2B /* CycleSummary+CoreDataProperties.swift */; };
+		D1FBCE2921378A060021FA2B /* Region+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2421378A060021FA2B /* Region+CoreDataProperties.swift */; };
+		D1FBCE2A21378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2521378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift */; };
+		D1FBCE2B21378A060021FA2B /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2621378A060021FA2B /* Transaction+CoreDataProperties.swift */; };
+		D1FBCE3121378A170021FA2B /* BlockchainInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2C21378A170021FA2B /* BlockchainInfo+CoreDataClass.swift */; };
+		D1FBCE3221378A170021FA2B /* Region+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2D21378A170021FA2B /* Region+CoreDataClass.swift */; };
+		D1FBCE3321378A170021FA2B /* CycleSummary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2E21378A170021FA2B /* CycleSummary+CoreDataClass.swift */; };
+		D1FBCE3421378A170021FA2B /* Block+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2F21378A170021FA2B /* Block+CoreDataClass.swift */; };
+		D1FBCE3521378A170021FA2B /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE3021378A170021FA2B /* Transaction+CoreDataClass.swift */; };
+		D1FBCE38213790BD0021FA2B /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE37213790BC0021FA2B /* DeviceType.swift */; };
+		D1FBCE3A2137916E0021FA2B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE392137916E0021FA2B /* DetailViewController.swift */; };
+		D1FBCE3C213791820021FA2B /* Detail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCE3B213791820021FA2B /* Detail.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,14 +40,33 @@
 		6638A0BFC1247E6DF8E23FA6 /* Pods-BlockoneLab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockoneLab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockoneLab/Pods-BlockoneLab.debug.xcconfig"; sourceTree = "<group>"; };
 		71C69EA8B089429212850009 /* Pods_BlockoneLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockoneLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FBCDEA213772FF0021FA2B /* BlockoneLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockoneLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1FBCDED213772FF0021FA2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D1FBCDF0213772FF0021FA2B /* BlockoneLab.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlockoneLab.xcdatamodel; sourceTree = "<group>"; };
-		D1FBCDF2213772FF0021FA2B /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		D1FBCDF4213772FF0021FA2B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		D1FBCDF7213772FF0021FA2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1FBCDF9213773010021FA2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1FBCDFC213773010021FA2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1FBCDFE213773010021FA2B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1FBCE0521377A5B0021FA2B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D1FBCE0821377A6C0021FA2B /* ServiceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
+		D1FBCE0921377A6C0021FA2B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		D1FBCE0E21377A6C0021FA2B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D1FBCE0F21377A6C0021FA2B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		D1FBCE1321377A6D0021FA2B /* BlockoneLab.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlockoneLab.xcdatamodel; sourceTree = "<group>"; };
+		D1FBCE1621377A6D0021FA2B /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
+		D1FBCE1D21377B680021FA2B /* BlockoneLab-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlockoneLab-Bridging-Header.h"; sourceTree = "<group>"; };
+		D1FBCE1E21377CF70021FA2B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D1FBCE2021377D4E0021FA2B /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		D1FBCE2221378A060021FA2B /* Block+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Block+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1FBCE2321378A060021FA2B /* CycleSummary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CycleSummary+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1FBCE2421378A060021FA2B /* Region+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Region+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1FBCE2521378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlockchainInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1FBCE2621378A060021FA2B /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D1FBCE2C21378A170021FA2B /* BlockchainInfo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlockchainInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D1FBCE2D21378A170021FA2B /* Region+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Region+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D1FBCE2E21378A170021FA2B /* CycleSummary+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CycleSummary+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D1FBCE2F21378A170021FA2B /* Block+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Block+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D1FBCE3021378A170021FA2B /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D1FBCE37213790BC0021FA2B /* DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
+		D1FBCE392137916E0021FA2B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		D1FBCE3B213791820021FA2B /* Detail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Detail.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,16 +119,123 @@
 		D1FBCDEC213772FF0021FA2B /* BlockoneLab */ = {
 			isa = PBXGroup;
 			children = (
-				D1FBCDED213772FF0021FA2B /* AppDelegate.swift */,
-				D1FBCDF2213772FF0021FA2B /* MasterViewController.swift */,
-				D1FBCDF4213772FF0021FA2B /* DetailViewController.swift */,
+				D1FBCE0421377A5B0021FA2B /* Application */,
+				D1FBCE0A21377A6C0021FA2B /* Tabs */,
+				D1FBCE1021377A6D0021FA2B /* Model */,
+				D1FBCE0721377A6C0021FA2B /* Network */,
+				D1FBCE36213790BC0021FA2B /* Global */,
 				D1FBCDF6213772FF0021FA2B /* Main.storyboard */,
 				D1FBCDF9213773010021FA2B /* Assets.xcassets */,
 				D1FBCDFB213773010021FA2B /* LaunchScreen.storyboard */,
 				D1FBCDFE213773010021FA2B /* Info.plist */,
-				D1FBCDEF213772FF0021FA2B /* BlockoneLab.xcdatamodeld */,
 			);
 			path = BlockoneLab;
+			sourceTree = "<group>";
+		};
+		D1FBCE0421377A5B0021FA2B /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE0521377A5B0021FA2B /* AppDelegate.swift */,
+				D1FBCE1D21377B680021FA2B /* BlockoneLab-Bridging-Header.h */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		D1FBCE0721377A6C0021FA2B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE0821377A6C0021FA2B /* ServiceManager.swift */,
+				D1FBCE0921377A6C0021FA2B /* API.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		D1FBCE0A21377A6C0021FA2B /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE0D21377A6C0021FA2B /* Base */,
+				D1FBCE0B21377A6C0021FA2B /* Search */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		D1FBCE0B21377A6C0021FA2B /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE1E21377CF70021FA2B /* SearchViewController.swift */,
+				D1FBCE2021377D4E0021FA2B /* Search.storyboard */,
+				D1FBCE0C21377A6C0021FA2B /* Detail */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		D1FBCE0C21377A6C0021FA2B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE392137916E0021FA2B /* DetailViewController.swift */,
+				D1FBCE3B213791820021FA2B /* Detail.storyboard */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		D1FBCE0D21377A6C0021FA2B /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE0E21377A6C0021FA2B /* BaseViewController.swift */,
+				D1FBCE0F21377A6C0021FA2B /* SplitViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D1FBCE1021377A6D0021FA2B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE1221377A6D0021FA2B /* BlockoneLab.xcdatamodeld */,
+				D1FBCE1121377A6D0021FA2B /* Derived */,
+				D1FBCE1421377A6D0021FA2B /* Stubbed */,
+				D1FBCE1521377A6D0021FA2B /* Utility */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D1FBCE1121377A6D0021FA2B /* Derived */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE2F21378A170021FA2B /* Block+CoreDataClass.swift */,
+				D1FBCE2C21378A170021FA2B /* BlockchainInfo+CoreDataClass.swift */,
+				D1FBCE2E21378A170021FA2B /* CycleSummary+CoreDataClass.swift */,
+				D1FBCE2D21378A170021FA2B /* Region+CoreDataClass.swift */,
+				D1FBCE3021378A170021FA2B /* Transaction+CoreDataClass.swift */,
+			);
+			path = Derived;
+			sourceTree = "<group>";
+		};
+		D1FBCE1421377A6D0021FA2B /* Stubbed */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE2221378A060021FA2B /* Block+CoreDataProperties.swift */,
+				D1FBCE2521378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift */,
+				D1FBCE2321378A060021FA2B /* CycleSummary+CoreDataProperties.swift */,
+				D1FBCE2421378A060021FA2B /* Region+CoreDataProperties.swift */,
+				D1FBCE2621378A060021FA2B /* Transaction+CoreDataProperties.swift */,
+			);
+			path = Stubbed;
+			sourceTree = "<group>";
+		};
+		D1FBCE1521377A6D0021FA2B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE1621377A6D0021FA2B /* CoreDataUtility.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		D1FBCE36213790BC0021FA2B /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				D1FBCE37213790BC0021FA2B /* DeviceType.swift */,
+			);
+			path = Global;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +300,8 @@
 			files = (
 				D1FBCDFD213773010021FA2B /* LaunchScreen.storyboard in Resources */,
 				D1FBCDFA213773010021FA2B /* Assets.xcassets in Resources */,
+				D1FBCE2121377D4E0021FA2B /* Search.storyboard in Resources */,
+				D1FBCE3C213791820021FA2B /* Detail.storyboard in Resources */,
 				D1FBCDF8213772FF0021FA2B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,10 +352,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1FBCDF1213772FF0021FA2B /* BlockoneLab.xcdatamodeld in Sources */,
-				D1FBCDEE213772FF0021FA2B /* AppDelegate.swift in Sources */,
-				D1FBCDF3213772FF0021FA2B /* MasterViewController.swift in Sources */,
-				D1FBCDF5213772FF0021FA2B /* DetailViewController.swift in Sources */,
+				D1FBCE2921378A060021FA2B /* Region+CoreDataProperties.swift in Sources */,
+				D1FBCE1F21377CF70021FA2B /* SearchViewController.swift in Sources */,
+				D1FBCE1C21377A6D0021FA2B /* CoreDataUtility.swift in Sources */,
+				D1FBCE0621377A5B0021FA2B /* AppDelegate.swift in Sources */,
+				D1FBCE3521378A170021FA2B /* Transaction+CoreDataClass.swift in Sources */,
+				D1FBCE1B21377A6D0021FA2B /* BlockoneLab.xcdatamodeld in Sources */,
+				D1FBCE1821377A6D0021FA2B /* API.swift in Sources */,
+				D1FBCE3A2137916E0021FA2B /* DetailViewController.swift in Sources */,
+				D1FBCE2721378A060021FA2B /* Block+CoreDataProperties.swift in Sources */,
+				D1FBCE1921377A6D0021FA2B /* BaseViewController.swift in Sources */,
+				D1FBCE1721377A6D0021FA2B /* ServiceManager.swift in Sources */,
+				D1FBCE1A21377A6D0021FA2B /* SplitViewController.swift in Sources */,
+				D1FBCE3321378A170021FA2B /* CycleSummary+CoreDataClass.swift in Sources */,
+				D1FBCE2821378A060021FA2B /* CycleSummary+CoreDataProperties.swift in Sources */,
+				D1FBCE3221378A170021FA2B /* Region+CoreDataClass.swift in Sources */,
+				D1FBCE3121378A170021FA2B /* BlockchainInfo+CoreDataClass.swift in Sources */,
+				D1FBCE2A21378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift in Sources */,
+				D1FBCE3421378A170021FA2B /* Block+CoreDataClass.swift in Sources */,
+				D1FBCE2B21378A060021FA2B /* Transaction+CoreDataProperties.swift in Sources */,
+				D1FBCE38213790BD0021FA2B /* DeviceType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +525,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockone.BlockoneLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlockoneLab/Application/BlockoneLab-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -382,6 +545,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.blockone.BlockoneLab;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlockoneLab/Application/BlockoneLab-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -411,12 +575,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D1FBCDEF213772FF0021FA2B /* BlockoneLab.xcdatamodeld */ = {
+		D1FBCE1221377A6D0021FA2B /* BlockoneLab.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D1FBCDF0213772FF0021FA2B /* BlockoneLab.xcdatamodel */,
+				D1FBCE1321377A6D0021FA2B /* BlockoneLab.xcdatamodel */,
 			);
-			currentVersion = D1FBCDF0213772FF0021FA2B /* BlockoneLab.xcdatamodel */;
+			currentVersion = D1FBCE1321377A6D0021FA2B /* BlockoneLab.xcdatamodel */;
 			path = BlockoneLab.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

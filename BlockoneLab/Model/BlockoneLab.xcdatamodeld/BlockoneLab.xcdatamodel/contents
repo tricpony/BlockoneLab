@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Block" representedClassName="Block" syncable="YES">
+        <attribute name="actionMRoot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blockMRoot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blockNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="blockTimestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="currentBlockHash" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="previousBlockHash" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="producer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="producerSignature" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refBlockPrefix" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="scheduleVersion" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="transactionMRoot" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="blockInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BlockchainInfo" inverseName="lastIrreversibleBlock" inverseEntity="BlockchainInfo" syncable="YES"/>
+        <relationship name="regions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Region" inverseName="block" inverseEntity="Region" syncable="YES"/>
+    </entity>
+    <entity name="BlockchainInfo" representedClassName="BlockchainInfo">
+        <attribute name="chainID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="headBlockID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headBlockNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="headBlockProducer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headBlockTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lastIrreversibleBlockID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastIrreversibleBlockNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serverVersion" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="lastIrreversibleBlock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="blockInfo" inverseEntity="Block" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="CycleSummary" representedClassName="CycleSummary" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="region" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Region" inverseName="cycleSummaries" inverseEntity="Region" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transaction" inverseName="cycleSummary" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <entity name="Region" representedClassName="Region" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="regionNum" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="block" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="regions" inverseEntity="Block" syncable="YES"/>
+        <relationship name="cycleSummaries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CycleSummary" inverseName="region" inverseEntity="CycleSummary" syncable="YES"/>
+    </entity>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="kcpu_usage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="transactionID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usageWords" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="cycleSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CycleSummary" inverseName="transactions" inverseEntity="CycleSummary" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="BlockchainInfo" positionX="261" positionY="189" width="128" height="195"/>
+        <element name="Block" positionX="261" positionY="225" width="128" height="255"/>
+        <element name="Region" positionX="279" positionY="324" width="128" height="105"/>
+        <element name="CycleSummary" positionX="288" positionY="333" width="128" height="90"/>
+        <element name="Transaction" positionX="306" positionY="351" width="128" height="135"/>
+    </elements>
+</model>
