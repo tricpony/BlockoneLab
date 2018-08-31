@@ -114,16 +114,16 @@ public class Transaction: NSManagedObject {
 
                  For brevity, only using the first object in this array - plus I don't really understand what it means
                 */
-                if let rawTransactionInfo = fullTransactionInfo["transaction"] as? Dictionary<String,Any>,
-                    let actionsInfoArray = rawTransactionInfo["actions"] as? [Dictionary<String,Any>],
+                if let rawTransactionInfo = fullTransactionInfo[API.TRANSACTION] as? Dictionary<String,Any>,
+                    let actionsInfoArray = rawTransactionInfo[API.ACTIONS] as? [Dictionary<String,Any>],
                     let accountInfo = actionsInfoArray.first {
                     
-                    transaction?.account = accountInfo["account"] as? String
-                    transaction?.name = accountInfo["name"] as? String
-                    if let authorizationInfoArray = accountInfo["authorization"] as? [Dictionary<String,String>],
+                    transaction?.account = accountInfo[API.ACCOUNT] as? String
+                    transaction?.name = accountInfo[API.NAME] as? String
+                    if let authorizationInfoArray = accountInfo[API.AUTHORIZATION] as? [Dictionary<String,String>],
                         let authorizationInfo = authorizationInfoArray.first {
-                        transaction?.actor = authorizationInfo["actor"]
-                        transaction?.permission = authorizationInfo["permission"]
+                        transaction?.actor = authorizationInfo[API.ACTOR]
+                        transaction?.permission = authorizationInfo[API.PERMISSION]
                     }
                     
                     /*
@@ -132,11 +132,11 @@ public class Transaction: NSManagedObject {
                      quantity = "0.0001 EOS";
                      to = ha2tembzgene;
                      */
-                    if let tradeInfo = accountInfo["data"] as? Dictionary<String,Any> {
-                        transaction?.from = tradeInfo["from"] as? String
-                        transaction?.to = tradeInfo["to"] as? String
-                        transaction?.quantity = tradeInfo["quantity"] as? String
-                        transaction?.memo = tradeInfo["memo"] as? String
+                    if let tradeInfo = accountInfo[API.DATA] as? Dictionary<String,Any> {
+                        transaction?.from = tradeInfo[API.FROM] as? String
+                        transaction?.to = tradeInfo[API.TO] as? String
+                        transaction?.quantity = tradeInfo[API.QUANTITY] as? String
+                        transaction?.memo = tradeInfo[API.MEMO] as? String
                     }
                 }
                 
@@ -178,22 +178,22 @@ public class Transaction: NSManagedObject {
     class func fillTransactionDetail(hash: String, from transactionInfo: Dictionary<String,Any>, inContext: NSManagedObjectContext) {
         if let staleTransaction = CoreDataUtility.fetchTransactionMatching(hash: hash, inContext: inContext) {
             
-            if let tracesInfo = transactionInfo["traces"] as? [Dictionary<String,Any>],
+            if let tracesInfo = transactionInfo[API.TRACES] as? [Dictionary<String,Any>],
                 let firstTrace = tracesInfo.first,
-                let accountInfo = firstTrace["act"] as? Dictionary<String,Any> {
+                let accountInfo = firstTrace[API.ACT] as? Dictionary<String,Any> {
                 
-                staleTransaction.account = accountInfo["account"] as? String
-                staleTransaction.name = accountInfo["name"] as? String
-                if let authorizationInfo = accountInfo["authorization"] as? [Dictionary<String,String>],
+                staleTransaction.account = accountInfo[API.ACCOUNT] as? String
+                staleTransaction.name = accountInfo[API.NAME] as? String
+                if let authorizationInfo = accountInfo[API.AUTHORIZATION] as? [Dictionary<String,String>],
                     let firstAuthorization = authorizationInfo.first {
-                    staleTransaction.actor = firstAuthorization["actor"]
-                    staleTransaction.permission = firstAuthorization["permission"]
+                    staleTransaction.actor = firstAuthorization[API.ACTOR]
+                    staleTransaction.permission = firstAuthorization[API.PERMISSION]
                 }
-                if let tradeInfo = accountInfo["data"] as? Dictionary<String,String> {
-                    staleTransaction.from = tradeInfo["from"]
-                    staleTransaction.to = tradeInfo["to"]
-                    staleTransaction.quantity = tradeInfo["quantity"]
-                    staleTransaction.memo = tradeInfo["memo"]
+                if let tradeInfo = accountInfo[API.DATA] as? Dictionary<String,String> {
+                    staleTransaction.from = tradeInfo[API.FROM]
+                    staleTransaction.to = tradeInfo[API.TO]
+                    staleTransaction.quantity = tradeInfo[API.QUANTITY]
+                    staleTransaction.memo = tradeInfo[API.MEMO]
                 }
                 
                 //set this to non-zero to indicate that the transaction is not empty

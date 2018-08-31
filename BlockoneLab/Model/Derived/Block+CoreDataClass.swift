@@ -79,21 +79,21 @@ public class Block: NSManagedObject {
         let ctx = inContext
         let block: Block? = Block.mr_createEntity(in: ctx)
 
-        if let time = blockInfo["timestamp"] as? String {
+        if let time = blockInfo[API.TIMESTAMP] as? String {
             block?.blockTimestamp = API.dateFormatter().date(from: time) as NSDate?
         }
-        block?.previousBlockHash = blockInfo["previous"] as? String
-        block?.currentBlockHash = blockInfo["id"] as? String
-        block?.transactionMRoot = blockInfo["transaction_mroot"] as? String
-        block?.actionMRoot = blockInfo["action_mroot"] as? String
-        block?.blockMRoot = blockInfo["block_mroot"] as? String
-        block?.producer = blockInfo["producer"] as? String
-        block?.scheduleVersion = (blockInfo["schedule_version"] as? Int16)!
-        block?.producerSignature = blockInfo["producer_signature"] as? String
-        block?.blockNum = (blockInfo["block_num"] as? Int64)!
-        block?.refBlockPrefix = (blockInfo["ref_block_prefix"] as? Int64)!
+        block?.previousBlockHash = blockInfo[API.PREVIOUS] as? String
+        block?.currentBlockHash = blockInfo[API.ID] as? String
+        block?.transactionMRoot = blockInfo[API.TRANSACTION_MROOT] as? String
+        block?.actionMRoot = blockInfo[API.ACTION_MROOT] as? String
+        block?.blockMRoot = blockInfo[API.BLOCK_MROOT] as? String
+        block?.producer = blockInfo[API.PRODUCER] as? String
+        block?.scheduleVersion = (blockInfo[API.SCHEDULE_VERSION] as? Int16)!
+        block?.producerSignature = blockInfo[API.PRODUCER_SIGNATURE] as? String
+        block?.blockNum = (blockInfo[API.BLOCK_NUM] as? Int64)!
+        block?.refBlockPrefix = (blockInfo[API.REF_BLOCK_PREFIX] as? Int64)!
         
-        if let transactions = blockInfo["transactions"] as? [Dictionary<String,Any>] {
+        if let transactions = blockInfo[API.TRANSACTIONS] as? [Dictionary<String,Any>] {
             
             for transactionInfo in transactions {
                 if let transaction = Transaction.createTransaction(trx: transactionInfo, inContext: inContext) {

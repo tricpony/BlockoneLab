@@ -39,13 +39,13 @@ public class BlockchainInfo: NSManagedObject {
         else{
             chainInfo = BlockchainInfo.mr_createEntity(in: ctx)
         }
-        chainInfo?.serverVersion = blockChainInfo["server_version"] as? String
-        chainInfo?.headBlockNum = (blockChainInfo["head_block_num"] as? Int64)!
-        chainInfo?.lastIrreversibleBlockNum = (blockChainInfo["last_irreversible_block_num"] as? Int64)!
-        chainInfo?.lastIrreversibleBlockID = blockChainInfo["last_irreversible_block_id"] as? String
-        chainInfo?.chainID = blockChainInfo["chain_id"] as? String
-        chainInfo?.headBlockID = blockChainInfo["head_block_id"] as? String
-        chainInfo?.headBlockProducer = blockChainInfo["head_block_producer"] as? String
+        chainInfo?.serverVersion = blockChainInfo[API.SERVER_VERSION] as? String
+        chainInfo?.headBlockNum = (blockChainInfo[API.HEAD_BLOCK_NUM] as? Int64)!
+        chainInfo?.lastIrreversibleBlockNum = (blockChainInfo[API.LAST_IRREVERSIBLE_BLOCK_NUM] as? Int64)!
+        chainInfo?.lastIrreversibleBlockID = blockChainInfo[API.LAST_IRREVERSIBLE_BLOCK_ID] as? String
+        chainInfo?.chainID = blockChainInfo[API.CHAIN_ID] as? String
+        chainInfo?.headBlockID = blockChainInfo[API.HEAD_BLOCK_ID] as? String
+        chainInfo?.headBlockProducer = blockChainInfo[API.HEAD_BLOCK_PRODUCER] as? String
         
         //save it
         ctx.mr_saveToPersistentStoreAndWait()
