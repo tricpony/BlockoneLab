@@ -28,7 +28,6 @@ extension Transaction {
     @NSManaged public var to: String?
     @NSManaged public var memo: String?
     @NSManaged public var quantity: String?
-    @NSManaged public var cycleSummary: CycleSummary?
     @NSManaged public var block: Block?
 
 }

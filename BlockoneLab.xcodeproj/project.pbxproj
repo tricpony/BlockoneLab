@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		097996A2DF40931944129641 /* Pods_BlockoneLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C69EA8B089429212850009 /* Pods_BlockoneLab.framework */; };
+		D1C771A82138DDDB00806491 /* BlockoneLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1C771A62138DDDA00806491 /* BlockoneLab.xcdatamodeld */; };
 		D1FBCDF8213772FF0021FA2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDF6213772FF0021FA2B /* Main.storyboard */; };
 		D1FBCDFA213773010021FA2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDF9213773010021FA2B /* Assets.xcassets */; };
 		D1FBCDFD213773010021FA2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDFB213773010021FA2B /* LaunchScreen.storyboard */; };
@@ -16,18 +17,13 @@
 		D1FBCE1821377A6D0021FA2B /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE0921377A6C0021FA2B /* API.swift */; };
 		D1FBCE1921377A6D0021FA2B /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE0E21377A6C0021FA2B /* BaseViewController.swift */; };
 		D1FBCE1A21377A6D0021FA2B /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE0F21377A6C0021FA2B /* SplitViewController.swift */; };
-		D1FBCE1B21377A6D0021FA2B /* BlockoneLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE1221377A6D0021FA2B /* BlockoneLab.xcdatamodeld */; };
 		D1FBCE1C21377A6D0021FA2B /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE1621377A6D0021FA2B /* CoreDataUtility.swift */; };
 		D1FBCE1F21377CF70021FA2B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE1E21377CF70021FA2B /* SearchViewController.swift */; };
 		D1FBCE2121377D4E0021FA2B /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCE2021377D4E0021FA2B /* Search.storyboard */; };
 		D1FBCE2721378A060021FA2B /* Block+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2221378A060021FA2B /* Block+CoreDataProperties.swift */; };
-		D1FBCE2821378A060021FA2B /* CycleSummary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2321378A060021FA2B /* CycleSummary+CoreDataProperties.swift */; };
-		D1FBCE2921378A060021FA2B /* Region+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2421378A060021FA2B /* Region+CoreDataProperties.swift */; };
 		D1FBCE2A21378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2521378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift */; };
 		D1FBCE2B21378A060021FA2B /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2621378A060021FA2B /* Transaction+CoreDataProperties.swift */; };
 		D1FBCE3121378A170021FA2B /* BlockchainInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2C21378A170021FA2B /* BlockchainInfo+CoreDataClass.swift */; };
-		D1FBCE3221378A170021FA2B /* Region+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2D21378A170021FA2B /* Region+CoreDataClass.swift */; };
-		D1FBCE3321378A170021FA2B /* CycleSummary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2E21378A170021FA2B /* CycleSummary+CoreDataClass.swift */; };
 		D1FBCE3421378A170021FA2B /* Block+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2F21378A170021FA2B /* Block+CoreDataClass.swift */; };
 		D1FBCE3521378A170021FA2B /* Transaction+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE3021378A170021FA2B /* Transaction+CoreDataClass.swift */; };
 		D1FBCE38213790BD0021FA2B /* DeviceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE37213790BC0021FA2B /* DeviceType.swift */; };
@@ -41,6 +37,7 @@
 		6580AC54DA0D947C615C2BD1 /* Pods-BlockoneLab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockoneLab.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlockoneLab/Pods-BlockoneLab.release.xcconfig"; sourceTree = "<group>"; };
 		6638A0BFC1247E6DF8E23FA6 /* Pods-BlockoneLab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockoneLab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockoneLab/Pods-BlockoneLab.debug.xcconfig"; sourceTree = "<group>"; };
 		71C69EA8B089429212850009 /* Pods_BlockoneLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockoneLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D1C771A72138DDDA00806491 /* BlockoneLab.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlockoneLab.xcdatamodel; sourceTree = "<group>"; };
 		D1FBCDEA213772FF0021FA2B /* BlockoneLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockoneLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FBCDF7213772FF0021FA2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1FBCDF9213773010021FA2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -51,19 +48,14 @@
 		D1FBCE0921377A6C0021FA2B /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		D1FBCE0E21377A6C0021FA2B /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D1FBCE0F21377A6C0021FA2B /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
-		D1FBCE1321377A6D0021FA2B /* BlockoneLab.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlockoneLab.xcdatamodel; sourceTree = "<group>"; };
 		D1FBCE1621377A6D0021FA2B /* CoreDataUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataUtility.swift; sourceTree = "<group>"; };
 		D1FBCE1D21377B680021FA2B /* BlockoneLab-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlockoneLab-Bridging-Header.h"; sourceTree = "<group>"; };
 		D1FBCE1E21377CF70021FA2B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D1FBCE2021377D4E0021FA2B /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		D1FBCE2221378A060021FA2B /* Block+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Block+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D1FBCE2321378A060021FA2B /* CycleSummary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CycleSummary+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		D1FBCE2421378A060021FA2B /* Region+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Region+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D1FBCE2521378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlockchainInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D1FBCE2621378A060021FA2B /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D1FBCE2C21378A170021FA2B /* BlockchainInfo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlockchainInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D1FBCE2D21378A170021FA2B /* Region+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Region+CoreDataClass.swift"; sourceTree = "<group>"; };
-		D1FBCE2E21378A170021FA2B /* CycleSummary+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CycleSummary+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D1FBCE2F21378A170021FA2B /* Block+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Block+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D1FBCE3021378A170021FA2B /* Transaction+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataClass.swift"; sourceTree = "<group>"; };
 		D1FBCE37213790BC0021FA2B /* DeviceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceType.swift; sourceTree = "<group>"; };
@@ -195,7 +187,7 @@
 		D1FBCE1021377A6D0021FA2B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D1FBCE1221377A6D0021FA2B /* BlockoneLab.xcdatamodeld */,
+				D1C771A62138DDDA00806491 /* BlockoneLab.xcdatamodeld */,
 				D1FBCE1121377A6D0021FA2B /* Derived */,
 				D1FBCE1421377A6D0021FA2B /* Stubbed */,
 				D1FBCE1521377A6D0021FA2B /* Utility */,
@@ -208,8 +200,6 @@
 			children = (
 				D1FBCE2F21378A170021FA2B /* Block+CoreDataClass.swift */,
 				D1FBCE2C21378A170021FA2B /* BlockchainInfo+CoreDataClass.swift */,
-				D1FBCE2E21378A170021FA2B /* CycleSummary+CoreDataClass.swift */,
-				D1FBCE2D21378A170021FA2B /* Region+CoreDataClass.swift */,
 				D1FBCE3021378A170021FA2B /* Transaction+CoreDataClass.swift */,
 			);
 			path = Derived;
@@ -220,8 +210,6 @@
 			children = (
 				D1FBCE2221378A060021FA2B /* Block+CoreDataProperties.swift */,
 				D1FBCE2521378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift */,
-				D1FBCE2321378A060021FA2B /* CycleSummary+CoreDataProperties.swift */,
-				D1FBCE2421378A060021FA2B /* Region+CoreDataProperties.swift */,
 				D1FBCE2621378A060021FA2B /* Transaction+CoreDataProperties.swift */,
 			);
 			path = Stubbed;
@@ -367,22 +355,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1FBCE2921378A060021FA2B /* Region+CoreDataProperties.swift in Sources */,
 				D1FBCE1F21377CF70021FA2B /* SearchViewController.swift in Sources */,
 				D1FBCE1C21377A6D0021FA2B /* CoreDataUtility.swift in Sources */,
 				D1FBCE0621377A5B0021FA2B /* AppDelegate.swift in Sources */,
 				D1FBCE3521378A170021FA2B /* Transaction+CoreDataClass.swift in Sources */,
-				D1FBCE1B21377A6D0021FA2B /* BlockoneLab.xcdatamodeld in Sources */,
 				D1FBCE1821377A6D0021FA2B /* API.swift in Sources */,
 				D1FBCE3A2137916E0021FA2B /* DetailViewController.swift in Sources */,
 				D1FBCE2721378A060021FA2B /* Block+CoreDataProperties.swift in Sources */,
 				D1FBCE1921377A6D0021FA2B /* BaseViewController.swift in Sources */,
+				D1C771A82138DDDB00806491 /* BlockoneLab.xcdatamodeld in Sources */,
 				D1FBCE402137FD100021FA2B /* BlockTableCell.swift in Sources */,
 				D1FBCE1721377A6D0021FA2B /* ServiceManager.swift in Sources */,
 				D1FBCE1A21377A6D0021FA2B /* SplitViewController.swift in Sources */,
-				D1FBCE3321378A170021FA2B /* CycleSummary+CoreDataClass.swift in Sources */,
-				D1FBCE2821378A060021FA2B /* CycleSummary+CoreDataProperties.swift in Sources */,
-				D1FBCE3221378A170021FA2B /* Region+CoreDataClass.swift in Sources */,
 				D1FBCE3121378A170021FA2B /* BlockchainInfo+CoreDataClass.swift in Sources */,
 				D1FBCE2A21378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift in Sources */,
 				D1FBCE3421378A170021FA2B /* Block+CoreDataClass.swift in Sources */,
@@ -591,12 +575,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D1FBCE1221377A6D0021FA2B /* BlockoneLab.xcdatamodeld */ = {
+		D1C771A62138DDDA00806491 /* BlockoneLab.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D1FBCE1321377A6D0021FA2B /* BlockoneLab.xcdatamodel */,
+				D1C771A72138DDDA00806491 /* BlockoneLab.xcdatamodel */,
 			);
-			currentVersion = D1FBCE1321377A6D0021FA2B /* BlockoneLab.xcdatamodel */;
+			currentVersion = D1C771A72138DDDA00806491 /* BlockoneLab.xcdatamodel */;
 			path = BlockoneLab.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
