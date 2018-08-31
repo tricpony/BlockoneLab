@@ -129,7 +129,10 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         serviceRequest.startService(forMethod: .get_info, args: nil) { (error: Error?, payload: Dictionary<String,Any>?) in
             if error != nil {
                 let nserror = error! as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                self.presentAlert(title: "Network Alert", message: nserror.localizedDescription, handler: {
+
+                })
+                return
             }
 
             if let content = payload {
@@ -189,7 +192,10 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         serviceRequest.startService(forMethod: .get_block, args: argPayload, completionClosure: { (error: Error?, payload: Dictionary<String,Any>?) in
             if error != nil {
                 let nserror = error! as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                self.presentAlert(title: "Network Alert", message: nserror.localizedDescription, handler: {
+                    
+                })
+                return
             }
 
             if let content = payload, let freshBlock = Block.createBlock(blockInfo: content, inContext: ctx) {

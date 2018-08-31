@@ -61,7 +61,10 @@ class DetailViewController: BaseViewController {
         serviceRequest.startService(forMethod: .get_transaction, args: argPayload) { (error: Error?, payload: Dictionary<String,Any>?) in
             if error != nil {
                 let nserror = error! as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                self.presentAlert(title: "Network Alert", message: nserror.localizedDescription, handler: {
+                    self.dismissCompactModal()
+                })
+                return
             }
             
             if let content = payload {
