@@ -13,7 +13,26 @@ class BaseViewController: UIViewController {
         MagicalRecord.setupCoreDataStack(withStoreNamed:"BlockoneLab")
         return NSManagedObjectContext.mr_default()
     }()
+    let pinwheel = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
+    func loadServiceActivityIndicator() {
+        let activityButton = UIBarButtonItem(customView: self.pinwheel)
+        self.navigationItem.leftBarButtonItem = activityButton
+        self.pinwheel.isHidden = true
+    }
+
+    func engageActivityIndicator(spin: Bool = true) {
+        DispatchQueue.main.async {
+            self.pinwheel.isHidden = !spin
+            if spin {
+                self.pinwheel.startAnimating()
+            }
+            else{
+                self.pinwheel.stopAnimating()
+            }
+        }
+    }
+    
     class func sizeClass() -> (vertical: UIUserInterfaceSizeClass, horizontal: UIUserInterfaceSizeClass) {
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
         let window: UIWindow = appDelegate.window!

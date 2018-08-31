@@ -16,22 +16,36 @@ class DetailViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.loadServiceActivityIndicator()
         self.configUI()
     }
 
+    override func engageActivityIndicator(spin: Bool) {
+        DispatchQueue.main.async {
+            self.pinWheel.isHidden = !spin
+            if spin {
+                self.pinWheel.startAnimating()
+            }
+            else{
+                self.pinWheel.stopAnimating()
+            }
+        }
+    }
+
     func configUI() {
-        self.pinWheel.isHidden = true
+        self.engageActivityIndicator(spin: false)
         if self.block == nil {
             self.emptySelectionLabel.isHidden = false
         }else
             if (self.block?.hasAnyTransactionData())! {
                 if let emptyTransactions = self.block?.emptyTransactions() {
                     
+                    self.engageActivityIndicator(spin: true)
                     DispatchQueue.global(qos: .background).async {
                         let ctx = NSManagedObjectContext.mr_context(withParent: self.managedObjectContext)
                         for nextEmptyTrans in emptyTransactions {
                             if let id = nextEmptyTrans.transactionID {
-                                self.performGetTransactionService(hash: id, inContext: ctx)
+                                self.performGetTransactionService(hash: id, inContext: ctx, isLastCall:(nextEmptyTrans == emptyTransactions.last))
                             }
                         }
                     }
@@ -54,11 +68,14 @@ class DetailViewController: BaseViewController {
     
     // MARK: - EOS API Service Calls
     
-    func performGetTransactionService(hash: String, inContext: NSManagedObjectContext) {
+    func performGetTransactionService(hash: String, inContext: NSManagedObjectContext, isLastCall: Bool) {
         let serviceRequest = ServiceManager()
         let argPayload = ["id":hash]
         
         serviceRequest.startService(forMethod: .get_transaction, args: argPayload) { (error: Error?, payload: Dictionary<String,Any>?) in
+            if isLastCall {
+                self.engageActivityIndicator(spin: false)
+            }
             if error != nil {
                 let nserror = error! as NSError
                 self.presentAlert(title: "Network Alert", message: nserror.localizedDescription, handler: {
@@ -69,10 +86,6 @@ class DetailViewController: BaseViewController {
             
             if let content = payload {
                 Transaction.fillTransactionDetail(hash: hash, from: content, inContext: inContext)
-                
-//                DispatchQueue.main.async {
-//                    self.refreshBarButton.isEnabled = true
-//                }
             }
         }
     }

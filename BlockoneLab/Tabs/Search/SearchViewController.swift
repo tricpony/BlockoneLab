@@ -13,7 +13,6 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
     @IBOutlet weak var emptyResultsLabel: UILabel!
     let searchController = UISearchController(searchResultsController: nil)
-    let pinwheel = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     var isLoading = false
     lazy var dateFormatter: DateFormatter = {
         var formatter = DateFormatter()
@@ -67,12 +66,6 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         unfilteredFetchedResultsController.delegate = self
         return unfilteredFetchedResultsController
     }
-
-    func loadServiceActivityIndicator() {
-        let activityButton = UIBarButtonItem(customView: self.pinwheel)
-        self.navigationItem.leftBarButtonItem = activityButton
-        self.pinwheel.isHidden = true
-    }
     
     func registerTableAssets() {
         var nib: UINib!
@@ -110,9 +103,10 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         DispatchQueue.main.async {
             self.searchController.searchResultsUpdater = self
             self.searchController.obscuresBackgroundDuringPresentation = false
-            self.searchController.searchBar.placeholder = "Search"
             self.searchController.searchBar.barTintColor = UIColor.black
-            self.tableView.tableHeaderView = self.searchController.searchBar
+            self.navigationItem.searchController = self.searchController
+            self.searchController.searchBar.placeholder = "Search Producer"
+            self.navigationItem.hidesSearchBarWhenScrolling = false
             self.definesPresentationContext = true
         }
     }
@@ -159,8 +153,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         //delete the old ones first
         Block.clearAllBlocks(in: self.managedObjectContext)
         self.managedObjectContext.mr_saveToPersistentStoreAndWait()
-        self.pinwheel.isHidden = false
-        self.pinwheel.startAnimating()
+        self.engageActivityIndicator()
         self.refreshBarButton.isEnabled = false
         self.isLoading = true
 
@@ -174,7 +167,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         if howMany == 0 {
             DispatchQueue.main.async {
                 self.isLoading = false
-                self.pinwheel.stopAnimating();
+                self.engageActivityIndicator(spin: false)
                 self.refreshBarButton.isEnabled = true
                 self.tableView.reloadData()
             }
@@ -322,15 +315,6 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
                 
                 //this clears the title of the back button to leave only the chevron
                 self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-                
-                //disable this delegate while visiting the detail screen because if it is selected as favorite
-                //the delegate method didChange here is called, which we really don't need, but more importantly
-                //for some odd reason once we pop the detail controller and cancel the search then reloadData on
-                //the table does nothing -- this only happens if the user is in search mode
-//                if isFiltering() {
-//                    self.filteredFetchedResultsController().delegate = nil
-//                    self.unfilteredFetchedResultsController.delegate = nil
-//                }
             }
         }
     }
