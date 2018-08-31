@@ -26,6 +26,15 @@ class CoreDataUtility {
         return fetchRequest
     }
     
+    class func fetchRequestForBlocksContaining(searchTerm: String, ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
+        let q = self.containsTypePredicate(key: "producer", value: searchTerm)
+        let fetchRequest = Block.mr_requestAll(with: q, in: ctx)
+        let sortOrder = NSSortDescriptor.init(key: "producer", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortOrder]
+        return fetchRequest
+    }
+
     class func fetchBlockChainInfo(in ctx: NSManagedObjectContext) -> BlockchainInfo? {
         var info: BlockchainInfo? = nil
         info = BlockchainInfo.mr_findFirst(in: ctx)

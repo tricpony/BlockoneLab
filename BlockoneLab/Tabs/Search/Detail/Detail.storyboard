@@ -17,10 +17,38 @@
                     <view key="view" contentMode="scaleToFill" id="pEK-v9-Y6V">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="matte_background_320x480" translatesAutoresizingMaskIntoConstraints="NO" id="ypv-1h-gXL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty Selection" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="abF-2g-dQ4">
+                                <rect key="frame" x="110.5" y="322" width="155.5" height="24"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="saD-f5-NeJ">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="saD-f5-NeJ" firstAttribute="centerX" secondItem="pEK-v9-Y6V" secondAttribute="centerX" id="4E1-Gd-04N"/>
+                            <constraint firstItem="abF-2g-dQ4" firstAttribute="centerY" secondItem="pEK-v9-Y6V" secondAttribute="centerY" id="54H-yf-F11"/>
+                            <constraint firstItem="DtM-xY-Fql" firstAttribute="trailing" secondItem="ypv-1h-gXL" secondAttribute="trailing" id="FrJ-TS-xxi"/>
+                            <constraint firstItem="DtM-xY-Fql" firstAttribute="bottom" secondItem="ypv-1h-gXL" secondAttribute="bottom" id="UL7-tq-Dwf"/>
+                            <constraint firstItem="saD-f5-NeJ" firstAttribute="centerY" secondItem="pEK-v9-Y6V" secondAttribute="centerY" id="bmf-MS-5uU"/>
+                            <constraint firstItem="abF-2g-dQ4" firstAttribute="centerX" secondItem="pEK-v9-Y6V" secondAttribute="centerX" id="fag-Bf-bzq"/>
+                            <constraint firstItem="ypv-1h-gXL" firstAttribute="top" secondItem="DtM-xY-Fql" secondAttribute="top" id="sT1-CY-rM8"/>
+                            <constraint firstItem="ypv-1h-gXL" firstAttribute="leading" secondItem="DtM-xY-Fql" secondAttribute="leading" id="tP3-P2-HjV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DtM-xY-Fql"/>
                     </view>
                     <navigationItem key="navigationItem" id="gWv-PU-6WS"/>
+                    <connections>
+                        <outlet property="emptySelectionLabel" destination="abF-2g-dQ4" id="TuM-op-9ax"/>
+                        <outlet property="pinWheel" destination="saD-f5-NeJ" id="S7f-ce-PAF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mI-DF-J0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -45,4 +73,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="124.58770614692655"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="matte_background_320x480" width="320" height="480"/>
+    </resources>
 </document>

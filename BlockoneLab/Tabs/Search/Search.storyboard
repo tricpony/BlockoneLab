@@ -13,7 +13,6 @@
         <!--Search View Controller-->
         <scene sceneID="s4J-Qu-Sea">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4QB-qo-9Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Ke5-SM-OCo" customClass="SearchViewController" customModule="BlockoneLab" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FsF-hu-BUB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -57,10 +56,20 @@
                         <outlet property="emptyResultsLabel" destination="cxF-zR-ghk" id="wIA-aC-7mA"/>
                         <outlet property="refreshBarButton" destination="Pln-At-gt7" id="Yn5-ff-Uey"/>
                         <outlet property="tableView" destination="1bH-TA-vM8" id="d6O-Y2-1iG"/>
+                        <segue destination="szs-0P-DjH" kind="showDetail" identifier="blockDetailSegue" id="Eu9-p4-f3K"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4QB-qo-9Lb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1104.8" y="211.84407796101951"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="HTg-O8-B5d">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Detail" id="szs-0P-DjH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nld-PH-77D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="730"/>
         </scene>
         <!--Search-->
         <scene sceneID="CgM-Ib-A3s">

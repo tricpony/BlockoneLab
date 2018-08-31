@@ -119,6 +119,7 @@ public class Transaction: NSManagedObject {
                     let accountInfo = actionsInfoArray.first {
                     
                     transaction?.account = accountInfo["account"] as? String
+                    transaction?.name = accountInfo["name"] as? String
                     if let authorizationInfoArray = accountInfo["authorization"] as? [Dictionary<String,String>],
                         let authorizationInfo = authorizationInfoArray.first {
                         transaction?.actor = authorizationInfo["actor"]

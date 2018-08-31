@@ -9,27 +9,21 @@
 import UIKit
 
 class DetailViewController: BaseViewController {
+    var block: Block? = nil
+    @IBOutlet weak var emptySelectionLabel: UILabel!
+    @IBOutlet weak var pinWheel: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.configUI()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func configUI() {
+        self.pinWheel.isHidden = true
+        if self.block == nil {
+            self.emptySelectionLabel.isHidden = false
+        }else{
+
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

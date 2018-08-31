@@ -8,12 +8,19 @@
 
 import UIKit
 
-class SearchViewController: BaseViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource {
+class SearchViewController: BaseViewController, NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var refreshBarButton: UIBarButtonItem!
     @IBOutlet weak var emptyResultsLabel: UILabel!
+    let searchController = UISearchController(searchResultsController: nil)
     let pinwheel = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     var isLoading = false
+    lazy var dateFormatter: DateFormatter = {
+        var formatter = DateFormatter()
+        
+        formatter.dateFormat = "EEE, MMM d, hh:mm:ss aaa"
+        return formatter
+    }()
     lazy var unfilteredFetchedResultsController: NSFetchedResultsController<Block> = {
         let fetchRequest = CoreDataUtility.fetchRequestForAllBlocks(ctx: self.managedObjectContext)
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
@@ -31,13 +38,36 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         
         return aFetchedResultsController as! NSFetchedResultsController<Block>
     }()
-    lazy var dateFormatter: DateFormatter = {
-        var formatter = DateFormatter()
+
+    func filteredFetchedResultsController() -> NSFetchedResultsController<Block> {
+        let fetchRequest = CoreDataUtility.fetchRequestForBlocksContaining(searchTerm: searchController.searchBar.text!, ctx: self.managedObjectContext)
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                                   managedObjectContext: self.managedObjectContext,
+                                                                   sectionNameKeyPath: nil,
+                                                                   cacheName: nil)
+        aFetchedResultsController.delegate = self
         
-        formatter.dateFormat = "EEE, MMM d, hh:mm:ss aaa"
-        return formatter
-    }()
+        do {
+            try aFetchedResultsController.performFetch()
+        } catch {
+            let nserror = error as NSError
+            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+        }
+        
+        return aFetchedResultsController as! NSFetchedResultsController<Block>
+    }
     
+    func fetchedResultsController() -> NSFetchedResultsController<Block> {
+        let unfilteredFetchedResultsController = self.unfilteredFetchedResultsController
+        let filteredFetchedResultsController = self.filteredFetchedResultsController
+        
+        if isFiltering() {
+            return filteredFetchedResultsController()
+        }
+        unfilteredFetchedResultsController.delegate = self
+        return unfilteredFetchedResultsController
+    }
+
     func loadServiceActivityIndicator() {
         let activityButton = UIBarButtonItem(customView: self.pinwheel)
         self.navigationItem.leftBarButtonItem = activityButton
@@ -67,6 +97,22 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         
         //fetch block chain data
         self.performGetBlockChainInfoService()
+    }
+
+    func setupSearchController() {
+        
+        //on initial launch of app we make the service call to fetch the data which returns in a closure
+        //in that case we must force the execution of this logic on the main thread to prevent a crash
+        //on every launch thereafter setupSearchController gets called on the main thread and this GCD
+        //call really does not matter
+        DispatchQueue.main.async {
+            self.searchController.searchResultsUpdater = self
+            self.searchController.obscuresBackgroundDuringPresentation = false
+            self.searchController.searchBar.placeholder = "Search"
+            self.searchController.searchBar.barTintColor = UIColor.black
+            self.tableView.tableHeaderView = self.searchController.searchBar
+            self.definesPresentationContext = true
+        }
     }
 
     func displayDateValue(_ date: Date) -> String {
@@ -153,11 +199,21 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         })
     }
     
-    // MARK: - NSFetchedResultsControllerDelegate
-
-    func fetchedResultsController() -> NSFetchedResultsController<Block> {
-        return unfilteredFetchedResultsController
+    // MARK: - UISearchResultsUpdating
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        self.tableView.reloadData()
     }
+    
+    func searchBarIsEmpty() -> Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
+    func isFiltering() -> Bool {
+        return searchController.isActive && !searchBarIsEmpty()
+    }
+
+    // MARK: - NSFetchedResultsControllerDelegate
 
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.beginUpdates()
@@ -226,6 +282,35 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if self.sizeClass().horizontal == .compact {
             tableView.deselectRow(at: indexPath, animated: true)
+        }
+        self.performSegue(withIdentifier: "blockDetailSegue", sender: indexPath)
+    }
+
+    // MARK: - Storyboard
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "blockDetailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let block: Block = fetchedResultsController().object(at: indexPath)
+                let vc = (segue.destination as! UINavigationController).topViewController as! DetailViewController
+                vc.block = block
+                vc.navigationItem.title = block.producer
+                vc.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                vc.navigationItem.leftItemsSupplementBackButton = true
+                
+                //this clears the title of the back button to leave only the chevron
+                self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+                
+                //disable this delegate while visiting the detail screen because if it is selected as favorite
+                //the delegate method didChange here is called, which we really don't need, but more importantly
+                //for some odd reason once we pop the detail controller and cancel the search then reloadData on
+                //the table does nothing -- this only happens if the user is in search mode
+//                if isFiltering() {
+//                    self.filteredFetchedResultsController().delegate = nil
+//                    self.unfilteredFetchedResultsController.delegate = nil
+//                }
+            }
         }
     }
 
