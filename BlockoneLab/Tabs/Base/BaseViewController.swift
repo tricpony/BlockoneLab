@@ -13,6 +13,12 @@ class BaseViewController: UIViewController {
         MagicalRecord.setupCoreDataStack(withStoreNamed:"BlockoneLab")
         return NSManagedObjectContext.mr_default()
     }()
+    lazy var dateFormatter: DateFormatter = {
+        var formatter = DateFormatter()
+        
+        formatter.dateFormat = "EEE, MMM d, hh:mm:ss aaa"
+        return formatter
+    }()
     let pinwheel = UIActivityIndicatorView(activityIndicatorStyle: .gray)
 
     func loadServiceActivityIndicator() {
@@ -51,6 +57,10 @@ class BaseViewController: UIViewController {
 
     @objc func dismissCompactModal() {
         self.dismiss(animated: true, completion: nil)
+    }
+
+    func displayDateValue(_ date: Date) -> String {
+        return self.dateFormatter.string(from: date)
     }
 
 }

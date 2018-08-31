@@ -14,12 +14,6 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     @IBOutlet weak var emptyResultsLabel: UILabel!
     let searchController = UISearchController(searchResultsController: nil)
     var isLoading = false
-    lazy var dateFormatter: DateFormatter = {
-        var formatter = DateFormatter()
-        
-        formatter.dateFormat = "EEE, MMM d, hh:mm:ss aaa"
-        return formatter
-    }()
     lazy var unfilteredFetchedResultsController: NSFetchedResultsController<Block> = {
         let fetchRequest = CoreDataUtility.fetchRequestForAllBlocks(ctx: self.managedObjectContext)
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
@@ -109,10 +103,6 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
             self.navigationItem.hidesSearchBarWhenScrolling = false
             self.definesPresentationContext = true
         }
-    }
-
-    func displayDateValue(_ date: Date) -> String {
-        return self.dateFormatter.string(from: date)
     }
     
     // MARK: - EOS API Service Calls

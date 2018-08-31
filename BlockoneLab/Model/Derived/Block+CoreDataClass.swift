@@ -112,7 +112,7 @@ public class Block: NSManagedObject {
         return self.transactions?.count ?? 0
     }
 
-    func hasAnyTransactionData() -> Bool {
+    func hasAnyEmptyTransactionData() -> Bool {
         let qualifier = CoreDataUtility.equalPredicate(key: "usageWords", value: 0)
         let results = self.transactions?.filtered(using: qualifier)
         

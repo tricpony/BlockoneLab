@@ -12,6 +12,16 @@ class DetailViewController: BaseViewController {
     var block: Block? = nil
     @IBOutlet weak var emptySelectionLabel: UILabel!
     @IBOutlet weak var pinWheel: UIActivityIndicatorView!
+    @IBOutlet weak var producerLabel: UILabel!
+    @IBOutlet weak var producerSigLabel: UILabel!
+    @IBOutlet weak var hashLabel: UILabel!
+    @IBOutlet weak var previousHashLabel: UILabel!
+    @IBOutlet weak var bundleNbrLabel: UILabel!
+    @IBOutlet weak var scheduleVersionLabel: UILabel!
+    @IBOutlet weak var approvalDateLabel: UILabel!
+    @IBOutlet weak var transactionCountLabel: UILabel!
+    
+    
     var forceDoneButton = false
 
     override func viewDidLoad() {
@@ -37,7 +47,7 @@ class DetailViewController: BaseViewController {
         if self.block == nil {
             self.emptySelectionLabel.isHidden = false
         }else
-            if (self.block?.hasAnyTransactionData())! {
+            if (self.block?.hasAnyEmptyTransactionData())! {
                 if let emptyTransactions = self.block?.emptyTransactions() {
                     
                     self.engageActivityIndicator(spin: true)
@@ -63,7 +73,25 @@ class DetailViewController: BaseViewController {
             done = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(dismissCompactModal))
             self.navigationItem.leftBarButtonItem = done
         }
-
+        self.fillBlockDataLabels()
+    }
+    
+    func fillBlockDataLabels() {
+        self.producerLabel.text = self.block?.producer
+        self.producerSigLabel.text = self.block?.producerSignature
+        self.hashLabel.text = self.block?.currentBlockHash
+        self.previousHashLabel.text = self.block?.previousBlockHash
+        
+        if let blockNbr = self.block?.blockNum {
+            self.bundleNbrLabel.text = String(blockNbr)
+        }
+        if let version = self.block?.scheduleVersion {
+            self.scheduleVersionLabel.text = String(version)
+        }
+        
+        if let date = self.block?.blockTimestamp {
+            self.approvalDateLabel.text = self.displayDateValue(date as Date)
+        }
     }
     
     // MARK: - EOS API Service Calls
