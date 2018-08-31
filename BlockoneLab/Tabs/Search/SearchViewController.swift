@@ -94,12 +94,14 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         self.tableView.tableFooterView = UIView()
         self.navigationItem.title = "Search"
         self.emptyResultsLabel.isHidden = CoreDataUtility.fetchBlockCount(in: self.managedObjectContext) > 0
+        self.setupSearchController(shouldEnable: CoreDataUtility.fetchBlockCount(in: self.managedObjectContext) > 0)
         
         //fetch block chain data
         self.performGetBlockChainInfoService()
     }
 
-    func setupSearchController() {
+    func setupSearchController(shouldEnable: Bool) {
+        if !shouldEnable {return}
         
         //on initial launch of app we make the service call to fetch the data which returns in a closure
         //in that case we must force the execution of this logic on the main thread to prevent a crash
@@ -178,6 +180,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         
         DispatchQueue.main.async {
             self.emptyResultsLabel.isHidden = CoreDataUtility.fetchBlockCount(in: ctx) > 0
+            self.setupSearchController(shouldEnable: CoreDataUtility.fetchBlockCount(in: self.managedObjectContext) > 0)
         }
 
         let serviceRequest = ServiceManager()
@@ -265,7 +268,19 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         let cell: BlockTableCell = self.nextCellForTableView(tableView, at: indexPath) as! BlockTableCell
         let block: Block = fetchedResultsController().object(at: indexPath)
         
-        cell.producerLabel.text = (block.producer ?? "Unknown")
+        if self.isFiltering() {
+            let highlightedSearchTerm = NSMutableAttributedString(string: block.producer!)
+            let range = block.producer?.range(of: searchController.searchBar.text!, options: .caseInsensitive)
+            
+            highlightedSearchTerm.addAttribute(.backgroundColor,
+                                               value: UIColor.yellow,
+                                               range: NSRange.init(location: (range?.lowerBound.encodedOffset)!,
+                                                                   length: (range?.upperBound.encodedOffset)! - (range?.lowerBound.encodedOffset)!))
+            cell.producerLabel?.attributedText = highlightedSearchTerm
+        }
+        else{
+            cell.producerLabel.text = (block.producer ?? "Unknown")
+        }
         cell.dateLabel.text = self.displayDateValue(block.blockTimestamp! as Date)
         cell.statusLabel.text = String(block.transactionCount()) + " Transactions"
         if !self.isLoading {
@@ -291,7 +306,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "blockDetailSegue" {
-            if let indexPath = tableView.indexPathForSelectedRow {
+            if let indexPath = sender as? IndexPath {
                 let block: Block = fetchedResultsController().object(at: indexPath)
                 let vc = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 vc.block = block

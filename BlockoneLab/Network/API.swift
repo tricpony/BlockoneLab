@@ -14,12 +14,17 @@ enum API_Method: String {
     case get_transaction
     
     func serviceAddress() -> String {
-        return API.endPoint + self.rawValue
+        switch self {
+        case .get_transaction:
+            return API.endPoint + "history/" + self.rawValue
+        default:
+            return API.endPoint + "chain/" + self.rawValue
+        }
     }
 }
 
 struct API {
-    static let endPoint = "https://api.eosnewyork.io/v1/chain/"
+    static let endPoint = "https://api.eosnewyork.io/v1/"
     static let formatter = DateFormatter()
     
     static func dateFormatter() -> DateFormatter {

@@ -147,6 +147,64 @@ public class Transaction: NSManagedObject {
         return transaction
     }
     
+    /**
+     transactionInfo looks like this:
+
+     $$$$ Trans_Detail: ["block_num": 13941990, "traces": <__NSArrayI 0x6040002316e0>(
+     {
+     act =     {
+     account = "eosio.token";
+     authorization =         (
+     {
+     actor = eosbetdice11;
+     permission = active;
+     }
+     );
+     data =         {
+     from = eosbetdice11;
+     memo = "ecosystemlab Bet id: 5810180408296211706 -- Referral reward! Play: dice.eosbet.io";
+     quantity = "0.0050 EOS";
+     to = safetransfer;
+     };
+
+     <snip>
+     
+     Normally I would want to use this method in the create method above too to keep a uniform solution but
+     between the two different services the data is structured differently
+     
+     Here we have fetched transaction data that was absent from the block data.  In the block it was reference only with a hash,
+     so using that hash as an arg to a transaction specific service we load the missing data
+     **/
+    class func fillTransactionDetail(hash: String, from transactionInfo: Dictionary<String,Any>, inContext: NSManagedObjectContext) {
+        if let staleTransaction = CoreDataUtility.fetchTransactionMatching(hash: hash, inContext: inContext) {
+            
+            if let tracesInfo = transactionInfo["traces"] as? [Dictionary<String,Any>],
+                let firstTrace = tracesInfo.first,
+                let accountInfo = firstTrace["act"] as? Dictionary<String,Any> {
+                
+                staleTransaction.account = accountInfo["account"] as? String
+                staleTransaction.name = accountInfo["name"] as? String
+                if let authorizationInfo = accountInfo["authorization"] as? [Dictionary<String,String>],
+                    let firstAuthorization = authorizationInfo.first {
+                    staleTransaction.actor = firstAuthorization["actor"]
+                    staleTransaction.permission = firstAuthorization["permission"]
+                }
+                if let tradeInfo = accountInfo["data"] as? Dictionary<String,String> {
+                    staleTransaction.from = tradeInfo["from"]
+                    staleTransaction.to = tradeInfo["to"]
+                    staleTransaction.quantity = tradeInfo["quantity"]
+                    staleTransaction.memo = tradeInfo["memo"]
+                }
+                
+                //set this to non-zero to indicate that the transaction is not empty
+                staleTransaction.usageWords = 1
+            }
+            
+            //save it
+            inContext.mr_saveToPersistentStoreAndWait()
+        }
+    }
+    
     func hasTransactionData() -> Bool {
         return self.usageWords > 0
     }

@@ -40,7 +40,13 @@ class CoreDataUtility {
         info = BlockchainInfo.mr_findFirst(in: ctx)
         return info
     }
+    
+    class func fetchTransactionMatching(hash: String, inContext: NSManagedObjectContext) -> Transaction? {
+        let qualifier = self.equalPredicate(key: "transactionID", value: hash)
         
+        return Transaction.mr_findFirst(with: qualifier, in: inContext)!
+    }
+    
     // MARK: - Pre-fabbed predicates
     
     class func equalPredicate(key: String, value: Any) -> NSPredicate {
@@ -62,9 +68,20 @@ class CoreDataUtility {
                                                         rightExpression: rhs,
                                                         modifier: NSComparisonPredicate.Modifier.direct,
                                                         type: NSComparisonPredicate.Operator.contains,
-                                                        options: NSComparisonPredicate.Options.diacriticInsensitive)
+                                                        options: NSComparisonPredicate.Options.caseInsensitive)
 
         return q
     }
     
+    class func greaterThanPredicate(key: String, value: Any) -> NSPredicate {
+        let lhs: NSExpression = NSExpression.init(forKeyPath: key)
+        let rhs: NSExpression = NSExpression.init(forConstantValue: value)
+        let q: NSPredicate = NSComparisonPredicate.init(leftExpression: lhs,
+                                                        rightExpression: rhs,
+                                                        modifier: NSComparisonPredicate.Modifier.direct,
+                                                        type: NSComparisonPredicate.Operator.greaterThan,
+                                                        options: NSComparisonPredicate.Options.normalized)
+        
+        return q
+    }
 }

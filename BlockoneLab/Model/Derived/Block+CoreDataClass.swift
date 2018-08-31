@@ -112,6 +112,27 @@ public class Block: NSManagedObject {
         return self.transactions?.count ?? 0
     }
 
+    func hasAnyTransactionData() -> Bool {
+        let qualifier = CoreDataUtility.equalPredicate(key: "usageWords", value: 0)
+        let results = self.transactions?.filtered(using: qualifier)
+        
+        return (results?.count)! > 0
+    }
+    
+    func hasAllTransactionData() -> Bool {
+        let qualifier = CoreDataUtility.greaterThanPredicate(key: "usageWords", value: 0)
+        let results = self.transactions?.filtered(using: qualifier)
+        
+        return results?.count == self.transactions?.count
+    }
+    
+    func emptyTransactions() -> [Transaction] {
+        let qualifier = CoreDataUtility.equalPredicate(key: "usageWords", value: 0)
+        let results: Set = (self.transactions?.filtered(using: qualifier))!
+        
+        return Array(results) as! [Transaction]
+    }
+    
     public override func awakeFromInsert() {
         super.awakeFromInsert()
         setValue(NSDate(), forKey:"createDate")
