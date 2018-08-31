@@ -44,22 +44,21 @@ class DetailViewController: BaseViewController {
 
     func configUI() {
         self.engageActivityIndicator(spin: false)
-        if self.block == nil {
-            self.emptySelectionLabel.isHidden = false
-        }else
-            if (self.block?.hasAnyEmptyTransactionData())! {
-                if let emptyTransactions = self.block?.emptyTransactions() {
-                    
-                    self.engageActivityIndicator(spin: true)
-                    DispatchQueue.global(qos: .background).async {
-                        let ctx = NSManagedObjectContext.mr_context(withParent: self.managedObjectContext)
-                        for nextEmptyTrans in emptyTransactions {
-                            if let id = nextEmptyTrans.transactionID {
-                                self.performGetTransactionService(hash: id, inContext: ctx, isLastCall:(nextEmptyTrans == emptyTransactions.last))
-                            }
+        self.emptySelectionLabel.isHidden = self.block != nil
+
+        if (self.block?.hasAnyEmptyTransactionData())! {
+            if let emptyTransactions = self.block?.emptyTransactions() {
+                
+                self.engageActivityIndicator(spin: true)
+                DispatchQueue.global(qos: .background).async {
+                    let ctx = NSManagedObjectContext.mr_context(withParent: self.managedObjectContext)
+                    for nextEmptyTrans in emptyTransactions {
+                        if let id = nextEmptyTrans.transactionID {
+                            self.performGetTransactionService(hash: id, inContext: ctx, isLastCall:(nextEmptyTrans == emptyTransactions.last))
                         }
                     }
                 }
+            }
 
         }
         
@@ -91,6 +90,10 @@ class DetailViewController: BaseViewController {
         
         if let date = self.block?.blockTimestamp {
             self.approvalDateLabel.text = self.displayDateValue(date as Date)
+        }
+        
+        if let count = self.block?.transactionCount() {
+            self.transactionCountLabel.text = String(count) + " Transactions"
         }
     }
     
