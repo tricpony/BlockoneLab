@@ -18,7 +18,6 @@ extension Region {
 
     @NSManaged public var createDate: NSDate?
     @NSManaged public var regionNum: Int32
-    @NSManaged public var attribute: NSObject?
     @NSManaged public var cycleSummaries: NSSet?
     @NSManaged public var block: Block?
 

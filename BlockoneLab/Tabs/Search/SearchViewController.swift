@@ -211,7 +211,7 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         
         cell.producerLabel.text = (block.producer ?? "Unknown")
         cell.dateLabel.text = self.displayDateValue(block.blockTimestamp! as Date)
-        cell.statusLabel.text = "5 regions"
+        cell.statusLabel.text = String(block.transactionCount()) + " Transactions"
         if !self.isLoading {
             cell.countLabel.text = String(indexPath.row+1)
         }

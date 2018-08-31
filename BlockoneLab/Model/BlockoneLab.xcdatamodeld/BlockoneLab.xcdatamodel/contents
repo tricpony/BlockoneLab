@@ -15,6 +15,7 @@
         <attribute name="transactionMRoot" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="blockInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BlockchainInfo" inverseName="lastIrreversibleBlock" inverseEntity="BlockchainInfo" syncable="YES"/>
         <relationship name="regions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Region" inverseName="block" inverseEntity="Region" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transaction" inverseName="block" inverseEntity="Transaction" syncable="YES"/>
     </entity>
     <entity name="BlockchainInfo" representedClassName="BlockchainInfo">
         <attribute name="chainID" optional="YES" attributeType="String" syncable="YES"/>
@@ -43,18 +44,26 @@
         <relationship name="cycleSummaries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CycleSummary" inverseName="region" inverseEntity="CycleSummary" syncable="YES"/>
     </entity>
     <entity name="Transaction" representedClassName="Transaction" syncable="YES">
+        <attribute name="account" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="actor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="from" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="kcpu_usage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="permission" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="to" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="transactionID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="usageWords" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="block" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="transactions" inverseEntity="Block" syncable="YES"/>
         <relationship name="cycleSummary" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CycleSummary" inverseName="transactions" inverseEntity="CycleSummary" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Block" positionX="261" positionY="225" width="128" height="270"/>
         <element name="BlockchainInfo" positionX="261" positionY="189" width="128" height="195"/>
-        <element name="Block" positionX="261" positionY="225" width="128" height="255"/>
-        <element name="Region" positionX="279" positionY="324" width="128" height="105"/>
         <element name="CycleSummary" positionX="288" positionY="333" width="128" height="90"/>
-        <element name="Transaction" positionX="306" positionY="351" width="128" height="135"/>
+        <element name="Region" positionX="279" positionY="324" width="128" height="105"/>
+        <element name="Transaction" positionX="306" positionY="351" width="128" height="30"/>
     </elements>
 </model>

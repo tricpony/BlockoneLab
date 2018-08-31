@@ -30,6 +30,7 @@ extension Block {
     @NSManaged public var refBlockPrefix: Int64
     @NSManaged public var blockInfo: BlockchainInfo?
     @NSManaged public var regions: NSSet?
+    @NSManaged public var transactions: NSSet?
 
 }
 
@@ -49,3 +50,21 @@ extension Block {
     @NSManaged public func removeFromRegions(_ values: NSSet)
 
 }
+
+// MARK: Generated accessors for transactions
+extension Block {
+    
+    @objc(addTransactionsObject:)
+    @NSManaged public func addToTransactions(_ value: Transaction)
+    
+    @objc(removeTransactionsObject:)
+    @NSManaged public func removeFromTransactions(_ value: Transaction)
+    
+    @objc(addTransactions:)
+    @NSManaged public func addToTransactions(_ values: NSSet)
+    
+    @objc(removeTransactions:)
+    @NSManaged public func removeFromTransactions(_ values: NSSet)
+    
+}
+

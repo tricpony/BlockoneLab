@@ -19,41 +19,69 @@ public class Block: NSManagedObject {
     /**
      blockInfo looks like this:
      
-     {
-     "previous": "00000004471d48fe40706e73ce27f9cf7bac1704ae55279c7a58c0173718a711",
-     "timestamp": "2018-04-18T16:24:23.500",
-     "transaction_mroot": "e366c0cc3519bb0f2ddaec20928fa4d6aae546194bb1c4205c67be429147ed4a",
-     "action_mroot": "77e5e91b594ab4ebc44ebc8c7ecdc9d26409c5a07452d3b20a4840562fdeb658",
-     "block_mroot": "4ef85b0d212f3fffabdd65680d32dd7dded3461d9df226a6e3dc232e42978f8b",
-     "producer": "eosio",
-     "schedule_version": 0,
-     "new_producers": null,
-     "producer_signature": "EOSJzEdFDsueKCerL7a6AdxMxiT851cEiugFB7ux1PAGn5eMmco8j32NsaKupxibheQGVFEqyEdjMub67VZjKmsLzuNxxKtUA",
-     "regions": [{
-     "region": 0,
-     "cycles_summary": [
-     [{
-     "read_locks": [],
-     "write_locks": [],
-     "transactions": [{
-     "status": "executed",
-     "kcpu_usage": 2,
-     "net_usage_words": 38,
-     "id": "9880c128683e24845ccd282ebe026bd522f7fa9c6278d885f6ed35164c680669"
-     }]
-     }]
-     ]
-     }],
-     "input_transactions": [],
+     ["confirmed": 0,
+     "header_extensions": <__NSArray0 0x60000000cdf0>(),
      "id": "000000056d75b0581b4fbb96affa36669a37173d21f46f8cb974f760e94bbe14",
      "block_num": 5,
-     "ref_block_prefix": 2528857883
+     "schedule_version": 307,
+     "producer_signature": SIG_K1_KhNJ1eK9FtrQy3tcoPPX3p3rB4vzdJobSwhqDugzB2qG9ZWaX9AYcuBPRaYDi2cTYG3m9GXNAr11Zxpgr25nnRtkzzEmn8,
+     "timestamp": 2018-08-30T22:13:59.000,
+     "producer": jedaaaaaaaaa,
+     "action_mroot": 979ee4e884d368b64bfbb9d8526c71d73249a396766fa5e3e32a145ce682fc39,
+     "new_producers": <null>,
+     "ref_block_prefix": 1082921948,
+     "previous": 00d40c050f031188eb44dc6a5965334bdace9e34098f7a4e1905c1caa9f3cc65,
+     "id": 00d40c067b747baedc138c40c2de0e4eb3e7e943cebfd6be01f8e39055cf457b,
+     "block_extensions": <__NSArray0 0x60000000cdf0>(),
+     "transactions": <__NSArrayI 0x60c0002878a0>(
+     {
+     "cpu_usage_us" = 378;
+     "net_usage_words" = 0;
+     status = executed;
+     trx = 726568181973c5b027d0f1a5d4e106d6e291370041f530af755e1d9b2909c546;
+     },
+     {
+     "cpu_usage_us" = 362;
+     "net_usage_words" = 0;
+     status = executed;
+     trx = b5e7ebcff0af61b6800b254b3a67d5c56ec60868c0f4a3d7cc7a1d17f7f6e6c8;
+     },
+     {
+     "cpu_usage_us" = 358;
+     "net_usage_words" = 0;
+     status = executed;
+     trx = 930242cde5b640b32d4df4a7a09b487846d648b319584922fa8ea4a2cab94399;
+     },
+     {
+     "cpu_usage_us" = 941;
+     "net_usage_words" = 29;
+     status = executed;
+     trx =     {
+     compression = none;
+     "context_free_data" =         (
+     );
+     id = adcb6f64f02ec5307ee41976901074ccc03a1ea8ef77e0daf760e8a2d9dc220c;
+     "packed_context_free_data" = "";
+     "packed_trx" = 436c885bb70a713e5079000000000100a6823403ea3055000000572d3ccdcd014086084ae1e8305500000000a8ed32328a014086084ae1e83055a0a662ff48958569010000000000000004454f5300000000695b20687474703a2f2f6c75636b796f732e696f205d5b454f532c20454f534441432c20424c41434b20737570706f727465645d20526f636b2d53636973736f72732d50617065722067616d65206261736564206f6e20454f5320736d61727420636f6e74726163742e00;
+     signatures =         (
+     "SIG_K1_KViwyzDm1AM8gVF5g9Ckt5YyWccnedVfTJ4QBm3rZEMWG5JsNTJLr5LTVaxw8CzwJBMExnNTZXdemrq42nE221qVuG3UAy"
+     );
+     transaction =         {
+     actions =             (
+
+     <snip>
+
      }
+     
+     Relevant root block data is at the top of this structure.  See Transaction class for detailed comments on the rest.
      **/
     @discardableResult class func createBlock(blockInfo: Dictionary<String,Any>, inContext: NSManagedObjectContext) -> Block? {
         let ctx = inContext
         let block: Block? = Block.mr_createEntity(in: ctx)
 
+        if let time = blockInfo["timestamp"] as? String {
+            block?.blockTimestamp = API.dateFormatter().date(from: time) as NSDate?
+        }
         block?.previousBlockHash = blockInfo["previous"] as? String
         block?.currentBlockHash = blockInfo["id"] as? String
         block?.transactionMRoot = blockInfo["transaction_mroot"] as? String
@@ -62,17 +90,28 @@ public class Block: NSManagedObject {
         block?.producer = blockInfo["producer"] as? String
         block?.scheduleVersion = (blockInfo["schedule_version"] as? Int16)!
         block?.producerSignature = blockInfo["producer_signature"] as? String
+        block?.blockNum = (blockInfo["block_num"] as? Int64)!
+        block?.refBlockPrefix = (blockInfo["ref_block_prefix"] as? Int64)!
         
-        if let time = blockInfo["timestamp"] as? String {
-            block?.blockTimestamp = API.dateFormatter().date(from: time) as NSDate?
+        if let transactions = blockInfo["transactions"] as? [Dictionary<String,Any>] {
+            
+            for transactionInfo in transactions {
+                if let transaction = Transaction.createTransaction(trx: transactionInfo, inContext: inContext) {
+                    block?.addToTransactions(transaction)
+                }
+            }
         }
-        
+                
         //save it
         ctx.mr_saveToPersistentStoreAndWait()
 
         return block
     }
     
+    func transactionCount() -> Int {
+        return self.transactions?.count ?? 0
+    }
+
     public override func awakeFromInsert() {
         super.awakeFromInsert()
         setValue(NSDate(), forKey:"createDate")

@@ -11,6 +11,7 @@ import Foundation
 enum API_Method: String {
     case get_info
     case get_block
+    case get_transaction
     
     func serviceAddress() -> String {
         return API.endPoint + self.rawValue
