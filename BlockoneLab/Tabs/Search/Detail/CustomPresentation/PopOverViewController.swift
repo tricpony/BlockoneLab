@@ -40,9 +40,21 @@ class PopOverViewController: UITableViewController, NSFetchedResultsControllerDe
         layer.cornerRadius = 6.25
     }
     
+    func registerTableAssets() {
+        var nib: UINib!
+        
+        nib = UINib.init(nibName: "TransactionTableCell", bundle: nil)
+        self.tableView.register(nib, forCellReuseIdentifier: TransactionTableCell.cell_id)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.applyBorder()
+        self.registerTableAssets()
+        
+        //enable auto cell height that uses constraints
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 145
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -74,7 +86,7 @@ class PopOverViewController: UITableViewController, NSFetchedResultsControllerDe
         let presentingFrame = presentingVC?.view.frame
         var realSize = intrinsicContentSize
         let y = self.originY
-        let maxHeight = (presentingFrame?.size.height)! - y
+        let maxHeight = (presentingFrame?.size.height)! - (y + 3.0)
         
         if intrinsicContentSize.height > maxHeight {
             realSize = CGSize(width: intrinsicContentSize.width, height: maxHeight)
@@ -109,7 +121,7 @@ class PopOverViewController: UITableViewController, NSFetchedResultsControllerDe
     // MARK: - Table View
     
     func cellIdentifier(at indexPath: IndexPath) -> String {
-        return "cell_id"
+        return TransactionTableCell.cell_id
     }
     
     func nextCellForTableView(_ tableView: UITableView, at indexPath: IndexPath) -> UITableViewCell {
@@ -132,12 +144,18 @@ class PopOverViewController: UITableViewController, NSFetchedResultsControllerDe
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.nextCellForTableView(tableView, at: indexPath)
+        let cell = self.nextCellForTableView(tableView, at: indexPath) as! TransactionTableCell
         let transaction: Transaction = fetchedResultsController.object(at: indexPath)
-        let name = transaction.name ?? "No Name"
         
-        cell.textLabel?.text = "Transaction Type " + name
-        cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+        cell.fromLabel.text = transaction.from ?? "Sender Unknown"
+        cell.toLabel.text = transaction.to ?? "Recipient Unknown"
+        cell.amountLabel.text = transaction.quantity ?? "Amount Unknown"
+        cell.accountLabel.text = transaction.account ?? "Acct Uknown"
+        cell.memoLabel.text = transaction.memo ?? "No Memo"
+        cell.typeLabel.text = transaction.name ?? "Type Unknown"
+        cell.byLabel.text = transaction.actor ?? "Actor Unknow"
+        
+        cell.accessoryType = UITableViewCellAccessoryType.none
         return cell
     }
     

@@ -236,6 +236,7 @@
                         <outlet property="producerLabel" destination="2tf-Na-lQR" id="KNP-Uv-il5"/>
                         <outlet property="producerSigLabel" destination="3pH-Tj-p0X" id="8Rv-hn-ZAa"/>
                         <outlet property="scheduleVersionLabel" destination="cs9-D1-67d" id="RDQ-Yh-myn"/>
+                        <outlet property="toggleSwitch" destination="G6j-jS-rGY" id="usY-WB-R1W"/>
                         <outlet property="transSwitchBanner" destination="AWu-NR-rSp" id="Inw-eu-jTi"/>
                         <outlet property="transactionCountLabel" destination="Ik0-Su-mYw" id="zZ0-Ua-KVY"/>
                         <segue destination="4O7-0E-fzA" kind="presentation" identifier="transactionSegue" id="quv-Mc-QqH"/>

@@ -15,6 +15,8 @@
 		D1C771B22139A44B00806491 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C771B12139A44B00806491 /* PopOverViewController.swift */; };
 		D1C771B42139A46200806491 /* PopOverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C771B32139A46200806491 /* PopOverViewController.storyboard */; };
 		D1C771B62139F6DB00806491 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C771B52139F6DB00806491 /* IntrinsicTableView.swift */; };
+		D1C771BA213A222E00806491 /* TransactionTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C771B8213A222E00806491 /* TransactionTableCell.swift */; };
+		D1C771BB213A222E00806491 /* TransactionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1C771B9213A222E00806491 /* TransactionTableCell.xib */; };
 		D1FBCDF8213772FF0021FA2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDF6213772FF0021FA2B /* Main.storyboard */; };
 		D1FBCDFA213773010021FA2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDF9213773010021FA2B /* Assets.xcassets */; };
 		D1FBCDFD213773010021FA2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDFB213773010021FA2B /* LaunchScreen.storyboard */; };
@@ -50,6 +52,8 @@
 		D1C771B12139A44B00806491 /* PopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
 		D1C771B32139A46200806491 /* PopOverViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopOverViewController.storyboard; sourceTree = "<group>"; };
 		D1C771B52139F6DB00806491 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
+		D1C771B8213A222E00806491 /* TransactionTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableCell.swift; sourceTree = "<group>"; };
+		D1C771B9213A222E00806491 /* TransactionTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableCell.xib; sourceTree = "<group>"; };
 		D1FBCDEA213772FF0021FA2B /* BlockoneLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockoneLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FBCDF7213772FF0021FA2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1FBCDF9213773010021FA2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 		D1C771AC213980FB00806491 /* CustomPresentation */ = {
 			isa = PBXGroup;
 			children = (
+				D1C771B7213A220C00806491 /* TableAssets */,
 				D1C771AD2139818F00806491 /* DropDownAnimationController.swift */,
 				D1C771AF21398ED900806491 /* DropDownPresentationController.swift */,
 				D1C771B12139A44B00806491 /* PopOverViewController.swift */,
@@ -124,6 +129,15 @@
 				D1C771B52139F6DB00806491 /* IntrinsicTableView.swift */,
 			);
 			path = CustomPresentation;
+			sourceTree = "<group>";
+		};
+		D1C771B7213A220C00806491 /* TableAssets */ = {
+			isa = PBXGroup;
+			children = (
+				D1C771B8213A222E00806491 /* TransactionTableCell.swift */,
+				D1C771B9213A222E00806491 /* TransactionTableCell.xib */,
+			);
+			path = TableAssets;
 			sourceTree = "<group>";
 		};
 		D1FBCDE1213772FF0021FA2B = {
@@ -341,6 +355,7 @@
 				D1FBCE3C213791820021FA2B /* Detail.storyboard in Resources */,
 				D1FBCE412137FD100021FA2B /* BlockTableCell.xib in Resources */,
 				D1FBCDF8213772FF0021FA2B /* Main.storyboard in Resources */,
+				D1C771BB213A222E00806491 /* TransactionTableCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +409,7 @@
 				D1FBCE1F21377CF70021FA2B /* SearchViewController.swift in Sources */,
 				D1FBCE1C21377A6D0021FA2B /* CoreDataUtility.swift in Sources */,
 				D1C771B22139A44B00806491 /* PopOverViewController.swift in Sources */,
+				D1C771BA213A222E00806491 /* TransactionTableCell.swift in Sources */,
 				D1FBCE0621377A5B0021FA2B /* AppDelegate.swift in Sources */,
 				D1FBCE3521378A170021FA2B /* Transaction+CoreDataClass.swift in Sources */,
 				D1FBCE1821377A6D0021FA2B /* API.swift in Sources */,
