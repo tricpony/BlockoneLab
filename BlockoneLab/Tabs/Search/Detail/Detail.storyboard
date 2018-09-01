@@ -230,6 +230,7 @@
                         <outlet property="blockNbrLabel" destination="ue4-z7-T07" id="lyh-4Y-4CQ"/>
                         <outlet property="emptySelectionLabel" destination="abF-2g-dQ4" id="TuM-op-9ax"/>
                         <outlet property="hashLabel" destination="POz-uO-Tjh" id="hzD-E1-nOR"/>
+                        <outlet property="masterCanvas" destination="T1s-sw-BxE" id="pra-es-dBC"/>
                         <outlet property="pinWheel" destination="8De-jj-Qts" id="FYa-xJ-yzY"/>
                         <outlet property="previousHashLabel" destination="jvg-Jk-CRK" id="JXo-XE-uAa"/>
                         <outlet property="producerLabel" destination="2tf-Na-lQR" id="KNP-Uv-il5"/>

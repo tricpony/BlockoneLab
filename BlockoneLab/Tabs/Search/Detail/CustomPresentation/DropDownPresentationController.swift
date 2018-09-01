@@ -17,8 +17,8 @@ class PassThruView: UIView {
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         var hit = super.hitTest(point, with: event)
         if hit == self {
-            hit = self.targetView?.hitTest(point, with: event)
-//            hit = self.targetView?.hitTest(self.convert(point, to: self.targetView), with: event)
+//            hit = self.targetView?.hitTest(point, with: event)
+            hit = self.targetView?.hitTest(self.convert(point, to: self.targetView), with: event)
         }
         
         return hit

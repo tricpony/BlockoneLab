@@ -21,6 +21,7 @@ class DetailViewController: BaseViewController {
     @IBOutlet weak var approvalDateLabel: UILabel!
     @IBOutlet weak var transactionCountLabel: UILabel!
     @IBOutlet weak var transSwitchBanner: UIView!
+    @IBOutlet weak var masterCanvas: UIView!
     
     
     @IBAction func presentTransactions(_ sender: Any) {
@@ -55,24 +56,8 @@ class DetailViewController: BaseViewController {
     }
 
     func configUI() {
-        self.engageActivityIndicator(spin: false)
         self.emptySelectionLabel.isHidden = self.block != nil
-
-        if (self.block?.hasAnyEmptyTransactionData())! {
-            if let emptyTransactions = self.block?.emptyTransactions() {
-                
-                self.engageActivityIndicator(spin: true)
-                DispatchQueue.global(qos: .background).async {
-                    let ctx = NSManagedObjectContext.mr_context(withParent: self.managedObjectContext)
-                    for nextEmptyTrans in emptyTransactions {
-                        if let id = nextEmptyTrans.transactionID {
-                            self.performGetTransactionService(hash: id, inContext: ctx, isLastCall:(nextEmptyTrans == emptyTransactions.last))
-                        }
-                    }
-                }
-            }
-
-        }
+        self.masterCanvas.isHidden = self.block == nil
         
         if Display.isIphone() || self.forceDoneButton == true {
             var done: UIBarButtonItem
@@ -84,6 +69,26 @@ class DetailViewController: BaseViewController {
             done = UIBarButtonItem.init(barButtonSystemItem: .done, target: self, action: #selector(dismissCompactModal))
             self.navigationItem.leftBarButtonItem = done
         }
+
+        guard let safeBlock = self.block else{
+            return
+        }
+        self.engageActivityIndicator(spin: false)
+
+        if safeBlock.hasAnyEmptyTransactionData() {
+            let emptyTransactions = safeBlock.emptyTransactions()
+            
+            self.engageActivityIndicator(spin: true)
+            DispatchQueue.global(qos: .background).async {
+                let ctx = NSManagedObjectContext.mr_context(withParent: self.managedObjectContext)
+                for nextEmptyTrans in emptyTransactions {
+                    if let id = nextEmptyTrans.transactionID {
+                        self.performGetTransactionService(hash: id, inContext: ctx, isLastCall:(nextEmptyTrans == emptyTransactions.last))
+                    }
+                }
+            }
+        }
+        
         self.fillBlockDataLabels()
     }
     
