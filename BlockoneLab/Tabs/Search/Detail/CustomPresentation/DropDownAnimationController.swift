@@ -15,7 +15,7 @@ enum DropDownAnimationDirection {
 
 protocol PopoverProtocol {
     func invalidateIntrinsicContentSize()
-    func invalidateIntrinsicContentSize() -> CGSize
+    func intrinsicContentSize() -> CGSize
 }
 
 class DropDownAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
