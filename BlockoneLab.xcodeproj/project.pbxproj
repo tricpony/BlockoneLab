@@ -10,6 +10,11 @@
 		097996A2DF40931944129641 /* Pods_BlockoneLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C69EA8B089429212850009 /* Pods_BlockoneLab.framework */; };
 		D1C771A82138DDDB00806491 /* BlockoneLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1C771A62138DDDA00806491 /* BlockoneLab.xcdatamodeld */; };
 		D1C771AB2139129300806491 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C771AA2139129300806491 /* Alerts.swift */; };
+		D1C771AE2139818F00806491 /* DropDownAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C771AD2139818F00806491 /* DropDownAnimationController.swift */; };
+		D1C771B021398ED900806491 /* DropDownPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C771AF21398ED900806491 /* DropDownPresentationController.swift */; };
+		D1C771B22139A44B00806491 /* PopOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C771B12139A44B00806491 /* PopOverViewController.swift */; };
+		D1C771B42139A46200806491 /* PopOverViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1C771B32139A46200806491 /* PopOverViewController.storyboard */; };
+		D1C771B62139F6DB00806491 /* IntrinsicTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C771B52139F6DB00806491 /* IntrinsicTableView.swift */; };
 		D1FBCDF8213772FF0021FA2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDF6213772FF0021FA2B /* Main.storyboard */; };
 		D1FBCDFA213773010021FA2B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDF9213773010021FA2B /* Assets.xcassets */; };
 		D1FBCDFD213773010021FA2B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCDFB213773010021FA2B /* LaunchScreen.storyboard */; };
@@ -40,6 +45,11 @@
 		71C69EA8B089429212850009 /* Pods_BlockoneLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockoneLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1C771A72138DDDA00806491 /* BlockoneLab.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlockoneLab.xcdatamodel; sourceTree = "<group>"; };
 		D1C771AA2139129300806491 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
+		D1C771AD2139818F00806491 /* DropDownAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownAnimationController.swift; sourceTree = "<group>"; };
+		D1C771AF21398ED900806491 /* DropDownPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownPresentationController.swift; sourceTree = "<group>"; };
+		D1C771B12139A44B00806491 /* PopOverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopOverViewController.swift; sourceTree = "<group>"; };
+		D1C771B32139A46200806491 /* PopOverViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PopOverViewController.storyboard; sourceTree = "<group>"; };
+		D1C771B52139F6DB00806491 /* IntrinsicTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrinsicTableView.swift; sourceTree = "<group>"; };
 		D1FBCDEA213772FF0021FA2B /* BlockoneLab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BlockoneLab.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1FBCDF7213772FF0021FA2B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D1FBCDF9213773010021FA2B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +112,18 @@
 				D1C771AA2139129300806491 /* Alerts.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D1C771AC213980FB00806491 /* CustomPresentation */ = {
+			isa = PBXGroup;
+			children = (
+				D1C771AD2139818F00806491 /* DropDownAnimationController.swift */,
+				D1C771AF21398ED900806491 /* DropDownPresentationController.swift */,
+				D1C771B12139A44B00806491 /* PopOverViewController.swift */,
+				D1C771B32139A46200806491 /* PopOverViewController.storyboard */,
+				D1C771B52139F6DB00806491 /* IntrinsicTableView.swift */,
+			);
+			path = CustomPresentation;
 			sourceTree = "<group>";
 		};
 		D1FBCDE1213772FF0021FA2B = {
@@ -179,6 +201,7 @@
 		D1FBCE0C21377A6C0021FA2B /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				D1C771AC213980FB00806491 /* CustomPresentation */,
 				D1FBCE392137916E0021FA2B /* DetailViewController.swift */,
 				D1FBCE3B213791820021FA2B /* Detail.storyboard */,
 			);
@@ -314,6 +337,7 @@
 				D1FBCDFD213773010021FA2B /* LaunchScreen.storyboard in Resources */,
 				D1FBCDFA213773010021FA2B /* Assets.xcassets in Resources */,
 				D1FBCE2121377D4E0021FA2B /* Search.storyboard in Resources */,
+				D1C771B42139A46200806491 /* PopOverViewController.storyboard in Resources */,
 				D1FBCE3C213791820021FA2B /* Detail.storyboard in Resources */,
 				D1FBCE412137FD100021FA2B /* BlockTableCell.xib in Resources */,
 				D1FBCDF8213772FF0021FA2B /* Main.storyboard in Resources */,
@@ -366,17 +390,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1C771B62139F6DB00806491 /* IntrinsicTableView.swift in Sources */,
 				D1FBCE1F21377CF70021FA2B /* SearchViewController.swift in Sources */,
 				D1FBCE1C21377A6D0021FA2B /* CoreDataUtility.swift in Sources */,
+				D1C771B22139A44B00806491 /* PopOverViewController.swift in Sources */,
 				D1FBCE0621377A5B0021FA2B /* AppDelegate.swift in Sources */,
 				D1FBCE3521378A170021FA2B /* Transaction+CoreDataClass.swift in Sources */,
 				D1FBCE1821377A6D0021FA2B /* API.swift in Sources */,
 				D1FBCE3A2137916E0021FA2B /* DetailViewController.swift in Sources */,
 				D1FBCE2721378A060021FA2B /* Block+CoreDataProperties.swift in Sources */,
 				D1FBCE1921377A6D0021FA2B /* BaseViewController.swift in Sources */,
+				D1C771AE2139818F00806491 /* DropDownAnimationController.swift in Sources */,
 				D1C771A82138DDDB00806491 /* BlockoneLab.xcdatamodeld in Sources */,
 				D1FBCE402137FD100021FA2B /* BlockTableCell.swift in Sources */,
 				D1FBCE1721377A6D0021FA2B /* ServiceManager.swift in Sources */,
+				D1C771B021398ED900806491 /* DropDownPresentationController.swift in Sources */,
 				D1FBCE1A21377A6D0021FA2B /* SplitViewController.swift in Sources */,
 				D1FBCE3121378A170021FA2B /* BlockchainInfo+CoreDataClass.swift in Sources */,
 				D1FBCE2A21378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift in Sources */,

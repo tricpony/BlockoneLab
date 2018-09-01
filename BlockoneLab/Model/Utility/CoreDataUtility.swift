@@ -34,7 +34,16 @@ class CoreDataUtility {
         fetchRequest.sortDescriptors = [sortOrder]
         return fetchRequest
     }
-
+    
+    class func fetchRequestForTransactions(inBlock: Block, ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
+        let q = self.equalPredicate(key: "block", value: inBlock)
+        let fetchRequest = Transaction.mr_requestAll(with: q, in: ctx)
+        let sortOrder = NSSortDescriptor.init(key: "createDate", ascending: false)
+        
+        fetchRequest.sortDescriptors = [sortOrder]
+        return fetchRequest
+    }
+    
     class func fetchBlockChainInfo(in ctx: NSManagedObjectContext) -> BlockchainInfo? {
         var info: BlockchainInfo? = nil
         info = BlockchainInfo.mr_findFirst(in: ctx)

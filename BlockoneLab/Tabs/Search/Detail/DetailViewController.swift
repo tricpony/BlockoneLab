@@ -16,11 +16,23 @@ class DetailViewController: BaseViewController {
     @IBOutlet weak var producerSigLabel: UILabel!
     @IBOutlet weak var hashLabel: UILabel!
     @IBOutlet weak var previousHashLabel: UILabel!
-    @IBOutlet weak var bundleNbrLabel: UILabel!
+    @IBOutlet weak var blockNbrLabel: UILabel!
     @IBOutlet weak var scheduleVersionLabel: UILabel!
     @IBOutlet weak var approvalDateLabel: UILabel!
     @IBOutlet weak var transactionCountLabel: UILabel!
+    @IBOutlet weak var transSwitchBanner: UIView!
     
+    
+    @IBAction func presentTransactions(_ sender: Any) {
+        let toggleSwitch = sender as? UISwitch
+        
+        if (toggleSwitch?.isOn)! {
+            self.performSegue(withIdentifier: "transactionSegue", sender: self)
+        }else
+        {
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
     var forceDoneButton = false
 
@@ -82,7 +94,7 @@ class DetailViewController: BaseViewController {
         self.previousHashLabel.text = self.block?.previousBlockHash
         
         if let blockNbr = self.block?.blockNum {
-            self.bundleNbrLabel.text = String(blockNbr)
+            self.blockNbrLabel.text = String(blockNbr)
         }
         if let version = self.block?.scheduleVersion {
             self.scheduleVersionLabel.text = String(version)
@@ -120,5 +132,49 @@ class DetailViewController: BaseViewController {
             }
         }
     }
+    
+    // MARK: - Storyboard
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "transactionSegue" {
+            let vc = segue.destination as? PopOverViewController
+            vc?.block = self.block
+            vc?.transitioningDelegate = self
+            vc?.modalPresentationStyle = .custom
+            vc?.originFrame = self.transSwitchBanner.frame
+        }
+    }
 
 }
+
+extension DetailViewController: UIViewControllerTransitioningDelegate {
+    
+    func presentationController(forPresented presented: UIViewController,
+                                presenting: UIViewController?,
+                                source: UIViewController) -> UIPresentationController? {
+
+        let presentingFrame = source.view.convert(self.transSwitchBanner.frame, to: presented.view)
+        let presentationController = DropDownPresentationController(presentedViewController: presented,
+                                                                   presenting: source,
+                                                                   origin: presentingFrame)
+        return presentationController
+    }
+
+    /**
+     This supports a custom controller transition executed by tapping the switch
+     **/
+    func animationController(forPresented presented: UIViewController,
+                             presenting: UIViewController,
+                             source: UIViewController)
+        -> UIViewControllerAnimatedTransitioning? {
+            return DropDownAnimationController(originFrame: self.transSwitchBanner.frame, direction: .MOVE_IN)
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController)
+        -> UIViewControllerAnimatedTransitioning? {
+            return DropDownAnimationController(originFrame: self.transSwitchBanner.frame, direction: .MOVE_OUT)
+    }
+
+}
+

@@ -115,8 +115,8 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bundle Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veh-Mm-asW">
-                                        <rect key="frame" x="10" y="121.5" width="98.5" height="16.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Block Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="veh-Mm-asW">
+                                        <rect key="frame" x="10" y="121.5" width="90" height="16.5"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -162,6 +162,9 @@
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G6j-jS-rGY">
                                                 <rect key="frame" x="266" y="4" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="presentTransactions:" destination="hzq-XN-ScK" eventType="valueChanged" id="bNB-LC-OLY"/>
+                                                </connections>
                                             </switch>
                                         </subviews>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="0.1922624144" colorSpace="custom" customColorSpace="sRGB"/>
@@ -224,7 +227,7 @@
                     <navigationItem key="navigationItem" id="gWv-PU-6WS"/>
                     <connections>
                         <outlet property="approvalDateLabel" destination="V9S-qr-pIN" id="NVJ-RZ-qxG"/>
-                        <outlet property="bundleNbrLabel" destination="ue4-z7-T07" id="lyh-4Y-4CQ"/>
+                        <outlet property="blockNbrLabel" destination="ue4-z7-T07" id="lyh-4Y-4CQ"/>
                         <outlet property="emptySelectionLabel" destination="abF-2g-dQ4" id="TuM-op-9ax"/>
                         <outlet property="hashLabel" destination="POz-uO-Tjh" id="hzD-E1-nOR"/>
                         <outlet property="pinWheel" destination="8De-jj-Qts" id="FYa-xJ-yzY"/>
@@ -232,12 +235,22 @@
                         <outlet property="producerLabel" destination="2tf-Na-lQR" id="KNP-Uv-il5"/>
                         <outlet property="producerSigLabel" destination="3pH-Tj-p0X" id="8Rv-hn-ZAa"/>
                         <outlet property="scheduleVersionLabel" destination="cs9-D1-67d" id="RDQ-Yh-myn"/>
+                        <outlet property="transSwitchBanner" destination="AWu-NR-rSp" id="Inw-eu-jTi"/>
                         <outlet property="transactionCountLabel" destination="Ik0-Su-mYw" id="zZ0-Ua-KVY"/>
+                        <segue destination="4O7-0E-fzA" kind="presentation" identifier="transactionSegue" id="quv-Mc-QqH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mI-DF-J0B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1076" y="124.58770614692655"/>
+        </scene>
+        <!--PopOverViewController-->
+        <scene sceneID="gFc-t7-mky">
+            <objects>
+                <viewControllerPlaceholder storyboardName="PopOverViewController" id="4O7-0E-fzA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0en-oq-bUb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1698" y="-30"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="8Oq-92-orW">
