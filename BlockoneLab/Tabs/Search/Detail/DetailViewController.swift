@@ -10,6 +10,7 @@ import UIKit
 
 class DetailViewController: BaseViewController {
     var block: Block? = nil
+    var isPresenting: Bool = false
     @IBOutlet weak var emptySelectionLabel: UILabel!
     @IBOutlet weak var pinWheel: UIActivityIndicatorView!
     @IBOutlet weak var producerLabel: UILabel!
@@ -22,15 +23,18 @@ class DetailViewController: BaseViewController {
     @IBOutlet weak var transactionCountLabel: UILabel!
     @IBOutlet weak var transSwitchBanner: UIView!
     @IBOutlet weak var masterCanvas: UIView!
+    @IBOutlet weak var toggleSwitch: UISwitch!
     
     
     @IBAction func presentTransactions(_ sender: Any) {
         let toggleSwitch = sender as? UISwitch
         
         if (toggleSwitch?.isOn)! {
+            self.isPresenting = true
             self.performSegue(withIdentifier: "transactionSegue", sender: self)
         }else
         {
+            self.isPresenting = false
             self.dismiss(animated: true, completion: nil)
         }
     }
@@ -41,6 +45,8 @@ class DetailViewController: BaseViewController {
         super.viewDidLoad()
         self.loadServiceActivityIndicator()
         self.configUI()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
 
     override func engageActivityIndicator(spin: Bool) {
@@ -70,10 +76,10 @@ class DetailViewController: BaseViewController {
             self.navigationItem.leftBarButtonItem = done
         }
 
+        self.engageActivityIndicator(spin: false)
         guard let safeBlock = self.block else{
             return
         }
-        self.engageActivityIndicator(spin: false)
 
         if safeBlock.hasAnyEmptyTransactionData() {
             let emptyTransactions = safeBlock.emptyTransactions()
@@ -136,6 +142,22 @@ class DetailViewController: BaseViewController {
                 Transaction.fillTransactionDetail(hash: hash, from: content, inContext: inContext)
             }
         }
+    }
+    
+    // MARK: - Size Class
+    
+    @objc func rotated() {
+        if self.isPresenting && (self.sizeClass().horizontal == .regular) {
+            self.dismiss(animated: true, completion: nil)
+            self.toggleSwitch.setOn(false, animated: false)
+        }
+        
+        if UIDevice.current.orientation.isPortrait {
+            self.toggleSwitch.isEnabled = true
+        }else if Display.isIphonePlus() && UIDevice.current.orientation.isLandscape {
+            self.toggleSwitch.isEnabled = false
+        }
+        
     }
     
     // MARK: - Storyboard
