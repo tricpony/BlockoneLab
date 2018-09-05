@@ -73,10 +73,6 @@ class DetailViewController: BaseViewController {
             self.navigationItem.leftBarButtonItem = done
         }
 
-        //this fixes a constraint warning caused by internal UIStackView constraints
-        //no idea how this fixes it but I tried the same thing with previousHashLabel
-        //and it did not work, so that constraint warning remains
-        self.hashLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
         self.engageActivityIndicator(spin: false)
         guard let safeBlock = self.block else{
             return
