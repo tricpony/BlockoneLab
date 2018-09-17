@@ -160,6 +160,12 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
                 self.engageActivityIndicator(spin: false)
                 self.refreshBarButton.isEnabled = true
                 self.tableView.reloadData()
+                
+                //let the block chain info core data object point to the latest block core data object
+                let blockChain = CoreDataUtility.fetchBlockChainInfo(in: self.managedObjectContext)
+                let latestBlock = CoreDataUtility.fetchBlockMatching(ID: (blockChain?.lastIrreversibleBlockID)!, inContext: self.managedObjectContext)
+                blockChain?.lastIrreversibleBlock = latestBlock
+                self.managedObjectContext.mr_saveToPersistentStoreAndWait()
             }
             return
         }

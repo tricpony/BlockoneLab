@@ -25,7 +25,6 @@ class DetailViewController: BaseViewController {
     @IBOutlet weak var masterCanvas: UIView!
     @IBOutlet weak var toggleSwitch: UISwitch!
     
-    
     @IBAction func presentTransactions(_ sender: Any) {
         let toggleSwitch = sender as? UISwitch
         
@@ -39,8 +38,6 @@ class DetailViewController: BaseViewController {
         }
     }
     
-    var forceDoneButton = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadServiceActivityIndicator()
@@ -65,7 +62,7 @@ class DetailViewController: BaseViewController {
         self.emptySelectionLabel.isHidden = self.block != nil
         self.masterCanvas.isHidden = self.block == nil
         
-        if Display.isIphone() || self.forceDoneButton == true {
+        if Display.isIphone() {
             var done: UIBarButtonItem
             
             //on the non-plus phone size class the split view detail expands as a modal, presenting buttom to top

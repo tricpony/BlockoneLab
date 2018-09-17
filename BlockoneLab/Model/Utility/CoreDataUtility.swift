@@ -50,6 +50,12 @@ class CoreDataUtility {
         return info
     }
     
+    class func fetchBlockMatching(ID: String, inContext: NSManagedObjectContext) -> Block? {
+        let qualifier = self.equalPredicate(key: "currentBlockHash", value: ID)
+        
+        return Block.mr_findFirst(with: qualifier, in: inContext)
+    }
+    
     class func fetchTransactionMatching(hash: String, inContext: NSManagedObjectContext) -> Transaction? {
         let qualifier = self.equalPredicate(key: "transactionID", value: hash)
         

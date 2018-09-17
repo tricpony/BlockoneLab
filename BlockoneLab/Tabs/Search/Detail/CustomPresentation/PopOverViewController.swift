@@ -153,7 +153,7 @@ class PopOverViewController: UITableViewController, NSFetchedResultsControllerDe
         cell.accountLabel.text = transaction.account ?? "Acct Uknown"
         cell.memoLabel.text = transaction.memo ?? "No Memo"
         cell.typeLabel.text = transaction.name ?? "Type Unknown"
-        cell.byLabel.text = transaction.actor ?? "Actor Unknow"
+        cell.byLabel.text = transaction.actor ?? "Actor Unknown"
         
         cell.accessoryType = UITableViewCellAccessoryType.none
         return cell

@@ -15,7 +15,7 @@ enum DropDownAnimationDirection {
 
 protocol PopoverProtocol {
     func invalidateIntrinsicContentSize()
-    func invalidateIntrinsicContentSize() -> CGSize
+    func intrinsicContentSize() -> CGSize
 }
 
 class DropDownAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
@@ -46,22 +46,18 @@ class DropDownAnimationController: NSObject, UIViewControllerAnimatedTransitioni
             let w = presentedFrame.size.width
             let flatFrame = CGRect(x: x, y: y, width: w, height: 0)
             transitionContext.containerView.addSubview(to_vc.view)
+            to_vc.view.frame = flatFrame
             
-            if self.direction == .MOVE_IN {
-                to_vc.view.frame = flatFrame
-                
-                UIView.animate(withDuration: duration, animations: {
+            UIView.animate(withDuration: duration, animations: {
+                to_vc.view.frame = CGRect(x: x, y: y, width: w, height: to_vc.intrinsicContentSize().height)
+            }) { (finished: Bool) in
+                UIView.animate(withDuration: 0.05, animations: {
                     to_vc.view.frame = CGRect(x: x, y: y, width: w, height: to_vc.intrinsicContentSize().height)
-                }) { (finished: Bool) in
-                    UIView.animate(withDuration: 0.05, animations: {
-                        to_vc.view.frame = CGRect(x: x, y: y, width: w, height: to_vc.intrinsicContentSize().height)
-                    }, completion: { (finis: Bool) in
-                        transitionContext.completeTransition(finis)
-                    })
-                }
-                
+                }, completion: { (finis: Bool) in
+                    transitionContext.completeTransition(finis)
+                })
             }
-
+                
         }else
         {
             guard let from_vc = transitionContext.viewController(forKey: .from) else {
