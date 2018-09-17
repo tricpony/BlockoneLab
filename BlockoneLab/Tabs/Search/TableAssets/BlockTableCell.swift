@@ -38,6 +38,10 @@ class BlockTableCell: UITableViewCell {
         self.countBackgroundView.backgroundColor = UIColor.clear
     }
     
+    /**
+     This is not used because it looks ugly.  I wanted to go back and clean it up, but never did.  I much better animation is described here:
+     https://stackoverflow.com/questions/35822790/uibezierpath-cashapelayer-animate-a-circle-filling-up
+    **/
     func fadeInCountBadge() {
         var shapeLayer: CAShapeLayer? = nil
         let sublayers = self.countBackgroundView.layer.sublayers
