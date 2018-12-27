@@ -64,13 +64,6 @@ class PopOverViewController: UITableViewController, NSFetchedResultsControllerDe
         self.originY = self.originFrame.maxY + (self.originFrame.size.height * 2.0) + 5.0
     }
     
-    
-    // MARK: - UIContentContainer
-    
-    func preferredContentSize() -> CGSize {
-        return view.frame.size
-    }
-    
     // MARK: - PopoverProtocol
 
     func invalidateIntrinsicContentSize() {
