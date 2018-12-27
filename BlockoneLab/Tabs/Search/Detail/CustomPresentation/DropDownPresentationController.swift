@@ -27,6 +27,8 @@ class PassThruView: UIView {
 class DropDownPresentationController: UIPresentationController {
     private let originFrame: CGRect
     private let passThruView: PassThruView
+    private let widthBuffer: CGFloat = 4.0
+    private let heightBuffer: CGFloat = 2.0
     
     init(presentedViewController: UIViewController, presenting presentingViewController: UIViewController?, origin: CGRect) {
         self.originFrame = origin
@@ -45,15 +47,40 @@ class DropDownPresentationController: UIPresentationController {
     }
     
     override func size(forChildContentContainer container: UIContentContainer, withParentContainerSize parentSize: CGSize) -> CGSize {
-        return CGSize(width: parentSize.width - 8.0, height: self.presentedViewController.view.frame.size.height)
+        
+        var w = parentSize.width - (widthBuffer * 2.0)
+        let h = parentSize.height - (originFrame.maxY + heightBuffer)
+        let sizeClass = BaseViewController.sizeClass()
+        
+        if sizeClass.vertical == .regular || sizeClass.horizontal == .regular {
+            if let presentingVC: UISplitViewController = presentingViewController as? UISplitViewController {
+                let detailVC:UIViewController!
+                
+                detailVC = presentingVC.viewControllers.last
+                w = detailVC.view.frame.size.width - (widthBuffer * 2.0)
+            }
+        }
+        
+        return CGSize(width: w, height: h)
     }
     
     override var frameOfPresentedViewInContainerView: CGRect {
         var frame: CGRect = .zero
 
         frame.size = size(forChildContentContainer: presentedViewController, withParentContainerSize: containerView!.bounds.size)
-        let x = self.originFrame.origin.x
-        let y  = self.originFrame.maxY + (self.originFrame.size.height * 2) + 5.0
+        var x = widthBuffer
+        let y  = self.originFrame.maxY + heightBuffer
+        let sizeClass = BaseViewController.sizeClass()
+        
+        if sizeClass.vertical == .regular || sizeClass.horizontal == .regular {
+            if let presentingVC: UISplitViewController = presentingViewController as? UISplitViewController {
+                let detailVC:UIViewController!
+                
+                detailVC = presentingVC.viewControllers.last
+                x = presentingVC.view.frame.size.width - (detailVC.view.frame.size.width - widthBuffer)
+            }
+        }
+        
         frame.origin.x = x
         frame.origin.y = y
         

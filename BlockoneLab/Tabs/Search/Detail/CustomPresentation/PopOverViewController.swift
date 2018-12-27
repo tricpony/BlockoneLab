@@ -65,8 +65,14 @@ class PopOverViewController: UITableViewController, NSFetchedResultsControllerDe
     }
     
     
-    // MARK: - PopoverProtocol
+    // MARK: - UIContentContainer
     
+    func preferredContentSize() -> CGSize {
+        return view.frame.size
+    }
+    
+    // MARK: - PopoverProtocol
+
     func invalidateIntrinsicContentSize() {
         self.tableView.invalidateIntrinsicContentSize()
     }
