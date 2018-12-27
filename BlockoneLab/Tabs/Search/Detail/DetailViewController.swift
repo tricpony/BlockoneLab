@@ -178,7 +178,7 @@ extension DetailViewController: UIViewControllerTransitioningDelegate {
                                 presenting: UIViewController?,
                                 source: UIViewController) -> UIPresentationController? {
 
-        let presentingFrame = source.view.convert(self.transSwitchBanner.frame, to: presented.view)
+        let presentingFrame = transSwitchBanner.convert(self.transSwitchBanner.bounds, to: nil)
         let presentationController = DropDownPresentationController(presentedViewController: presented,
                                                                    presenting: source,
                                                                    origin: presentingFrame)
