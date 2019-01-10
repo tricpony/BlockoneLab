@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1GS-rd-at4">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Favorites View Controller-->
+        <scene sceneID="8lV-vr-nfw">
+            <objects>
+                <tableViewController id="V9p-yZ-gSy" customClass="FavoritesViewController" customModule="BlockoneLab" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zTj-8Y-SN7">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <connections>
+                            <outlet property="dataSource" destination="V9p-yZ-gSy" id="hUx-Ze-EHu"/>
+                            <outlet property="delegate" destination="V9p-yZ-gSy" id="EP6-wn-g5W"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="HlZ-or-2DB"/>
+                    <connections>
+                        <segue destination="Hn2-f2-A8v" kind="showDetail" identifier="blockDetailSegue" id="WCn-Ne-g8k"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GhS-sG-BAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1268" y="-355.7721139430285"/>
+        </scene>
+        <!--Detail-->
+        <scene sceneID="x5O-iM-twD">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Detail" id="Hn2-f2-A8v" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uzo-nG-lzb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1159" y="181"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="dre-dz-1Jz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1GS-rd-at4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star-filled" id="Fmu-MY-yE3"/>
+                    <toolbarItems/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="s3s-pC-8C7">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="V9p-yZ-gSy" kind="relationship" relationship="rootViewController" id="KON-cP-bLY"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KQa-xg-aRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="328.80000000000001" y="-355.7721139430285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="star-filled" width="30" height="30"/>
+    </resources>
+</document>

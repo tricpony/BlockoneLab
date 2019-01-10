@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18B75" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Block" representedClassName="Block" syncable="YES">
+        <attribute name="actionMRoot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blockMRoot" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="blockNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="blockTimestamp" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="currentBlockHash" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="previousBlockHash" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="producer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="producerSignature" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="refBlockPrefix" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="scheduleVersion" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="stale" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="transactionMRoot" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="blockInfo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BlockchainInfo" inverseName="lastIrreversibleBlock" inverseEntity="BlockchainInfo" syncable="YES"/>
+        <relationship name="favorite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Favorite" inverseName="block" inverseEntity="Favorite" syncable="YES"/>
+        <relationship name="transactions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Transaction" inverseName="block" inverseEntity="Transaction" syncable="YES"/>
+    </entity>
+    <entity name="BlockchainInfo" representedClassName="BlockchainInfo">
+        <attribute name="chainID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <attribute name="headBlockID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headBlockNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="headBlockProducer" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="headBlockTime" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="lastIrreversibleBlockID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastIrreversibleBlockNum" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="serverVersion" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="lastIrreversibleBlock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="blockInfo" inverseEntity="Block" syncable="YES"/>
+        <userInfo/>
+    </entity>
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES">
+        <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="block" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="favorite" inverseEntity="Block" syncable="YES"/>
+    </entity>
+    <entity name="Transaction" representedClassName="Transaction" syncable="YES">
+        <attribute name="account" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="actor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="from" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="kcpu_usage" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="memo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="permission" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantity" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="to" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="transactionID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usageWords" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="block" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Block" inverseName="transactions" inverseEntity="Block" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Block" positionX="261" positionY="225" width="128" height="285"/>
+        <element name="BlockchainInfo" positionX="261" positionY="189" width="128" height="195"/>
+        <element name="Favorite" positionX="288" positionY="342" width="128" height="75"/>
+        <element name="Transaction" positionX="306" positionY="351" width="128" height="253"/>
+    </elements>
+</model>

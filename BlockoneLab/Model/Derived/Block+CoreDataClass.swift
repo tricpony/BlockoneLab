@@ -13,7 +13,21 @@ import CoreData
 public class Block: NSManagedObject {
 
     class func clearAllBlocks(in ctx: NSManagedObjectContext) {
-        Block.mr_deleteAll(matching: NSPredicate(value: true), in: ctx);
+        let qualifier = CoreDataUtility.equalPredicate(key: "favorite", value: NSNull())
+        let favorites = CoreDataUtility.fetchNewFavorites(inContext: ctx)
+        
+        //the property named stale on Block indicates that the user has selected it as a favorite
+        //and is now refreshing his list of blocks so we need to mark them as stale so that they
+        //will be filtered out of the refreshed list
+        //before the blocks were refreshed, and any were flagged as favorite, we must not tamper
+        //with the stale property or else it will be filtered out of the block list, now it is
+        //safe to set stale to true
+        for modelObject in favorites {
+            if let favorite = modelObject as? Favorite {
+                favorite.block?.stale = true
+            }
+        }
+        Block.mr_deleteAll(matching: qualifier, in: ctx);
     }
     
     /**
@@ -131,6 +145,10 @@ public class Block: NSManagedObject {
         let results: Set = (self.transactions?.filtered(using: qualifier))!
         
         return Array(results) as! [Transaction]
+    }
+    
+    func isFavorite() -> Bool {
+        return self.favorite != nil
     }
     
     public override func awakeFromInsert() {

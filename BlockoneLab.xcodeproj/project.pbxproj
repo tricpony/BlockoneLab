@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		097996A2DF40931944129641 /* Pods_BlockoneLab.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71C69EA8B089429212850009 /* Pods_BlockoneLab.framework */; };
+		D195537B21E6E85B0093079C /* Favorite+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195537A21E6E85B0093079C /* Favorite+CoreDataProperties.swift */; };
+		D195537D21E6E8650093079C /* Favorite+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195537C21E6E8650093079C /* Favorite+CoreDataClass.swift */; };
+		D195537F21E6E93A0093079C /* Block+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195537E21E6E93A0093079C /* Block+CoreDataProperties.swift */; };
+		D195538121E6F6430093079C /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D195538021E6F6430093079C /* FavoritesViewController.swift */; };
+		D195538321E6F7F00093079C /* Favorites.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D195538221E6F7F00093079C /* Favorites.storyboard */; };
 		D1C771A82138DDDB00806491 /* BlockoneLab.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D1C771A62138DDDA00806491 /* BlockoneLab.xcdatamodeld */; };
 		D1C771AB2139129300806491 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C771AA2139129300806491 /* Alerts.swift */; };
 		D1C771AE2139818F00806491 /* DropDownAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1C771AD2139818F00806491 /* DropDownAnimationController.swift */; };
@@ -28,7 +33,6 @@
 		D1FBCE1C21377A6D0021FA2B /* CoreDataUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE1621377A6D0021FA2B /* CoreDataUtility.swift */; };
 		D1FBCE1F21377CF70021FA2B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE1E21377CF70021FA2B /* SearchViewController.swift */; };
 		D1FBCE2121377D4E0021FA2B /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1FBCE2021377D4E0021FA2B /* Search.storyboard */; };
-		D1FBCE2721378A060021FA2B /* Block+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2221378A060021FA2B /* Block+CoreDataProperties.swift */; };
 		D1FBCE2A21378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2521378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift */; };
 		D1FBCE2B21378A060021FA2B /* Transaction+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2621378A060021FA2B /* Transaction+CoreDataProperties.swift */; };
 		D1FBCE3121378A170021FA2B /* BlockchainInfo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1FBCE2C21378A170021FA2B /* BlockchainInfo+CoreDataClass.swift */; };
@@ -45,6 +49,12 @@
 		6580AC54DA0D947C615C2BD1 /* Pods-BlockoneLab.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockoneLab.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlockoneLab/Pods-BlockoneLab.release.xcconfig"; sourceTree = "<group>"; };
 		6638A0BFC1247E6DF8E23FA6 /* Pods-BlockoneLab.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockoneLab.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockoneLab/Pods-BlockoneLab.debug.xcconfig"; sourceTree = "<group>"; };
 		71C69EA8B089429212850009 /* Pods_BlockoneLab.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockoneLab.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D195537721E6E6B40093079C /* BlockoneLab_19.1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlockoneLab_19.1.1.xcdatamodel; sourceTree = "<group>"; };
+		D195537A21E6E85B0093079C /* Favorite+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D195537C21E6E8650093079C /* Favorite+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Favorite+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D195537E21E6E93A0093079C /* Block+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Block+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		D195538021E6F6430093079C /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		D195538221E6F7F00093079C /* Favorites.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Favorites.storyboard; sourceTree = "<group>"; };
 		D1C771A72138DDDA00806491 /* BlockoneLab.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BlockoneLab.xcdatamodel; sourceTree = "<group>"; };
 		D1C771AA2139129300806491 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		D1C771AD2139818F00806491 /* DropDownAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDownAnimationController.swift; sourceTree = "<group>"; };
@@ -68,7 +78,6 @@
 		D1FBCE1D21377B680021FA2B /* BlockoneLab-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlockoneLab-Bridging-Header.h"; sourceTree = "<group>"; };
 		D1FBCE1E21377CF70021FA2B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		D1FBCE2021377D4E0021FA2B /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
-		D1FBCE2221378A060021FA2B /* Block+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Block+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D1FBCE2521378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlockchainInfo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D1FBCE2621378A060021FA2B /* Transaction+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Transaction+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		D1FBCE2C21378A170021FA2B /* BlockchainInfo+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "BlockchainInfo+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -109,6 +118,16 @@
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
+		};
+		D195537621E6E5FF0093079C /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				D195538021E6F6430093079C /* FavoritesViewController.swift */,
+				D195538221E6F7F00093079C /* Favorites.storyboard */,
+			);
+			name = Favorites;
+			path = BlockoneLab/Tabs/Favorites;
+			sourceTree = SOURCE_ROOT;
 		};
 		D1C771A92139125600806491 /* Extensions */ = {
 			isa = PBXGroup;
@@ -197,6 +216,7 @@
 			children = (
 				D1FBCE0D21377A6C0021FA2B /* Base */,
 				D1FBCE0B21377A6C0021FA2B /* Search */,
+				D195537621E6E5FF0093079C /* Favorites */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -245,6 +265,7 @@
 		D1FBCE1121377A6D0021FA2B /* Derived */ = {
 			isa = PBXGroup;
 			children = (
+				D195537C21E6E8650093079C /* Favorite+CoreDataClass.swift */,
 				D1FBCE2F21378A170021FA2B /* Block+CoreDataClass.swift */,
 				D1FBCE2C21378A170021FA2B /* BlockchainInfo+CoreDataClass.swift */,
 				D1FBCE3021378A170021FA2B /* Transaction+CoreDataClass.swift */,
@@ -255,7 +276,8 @@
 		D1FBCE1421377A6D0021FA2B /* Stubbed */ = {
 			isa = PBXGroup;
 			children = (
-				D1FBCE2221378A060021FA2B /* Block+CoreDataProperties.swift */,
+				D195537E21E6E93A0093079C /* Block+CoreDataProperties.swift */,
+				D195537A21E6E85B0093079C /* Favorite+CoreDataProperties.swift */,
 				D1FBCE2521378A060021FA2B /* BlockchainInfo+CoreDataProperties.swift */,
 				D1FBCE2621378A060021FA2B /* Transaction+CoreDataProperties.swift */,
 			);
@@ -350,6 +372,7 @@
 			files = (
 				D1FBCDFD213773010021FA2B /* LaunchScreen.storyboard in Resources */,
 				D1FBCDFA213773010021FA2B /* Assets.xcassets in Resources */,
+				D195538321E6F7F00093079C /* Favorites.storyboard in Resources */,
 				D1FBCE2121377D4E0021FA2B /* Search.storyboard in Resources */,
 				D1C771B42139A46200806491 /* PopOverViewController.storyboard in Resources */,
 				D1FBCE3C213791820021FA2B /* Detail.storyboard in Resources */,
@@ -405,20 +428,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D195538121E6F6430093079C /* FavoritesViewController.swift in Sources */,
 				D1C771B62139F6DB00806491 /* IntrinsicTableView.swift in Sources */,
 				D1FBCE1F21377CF70021FA2B /* SearchViewController.swift in Sources */,
 				D1FBCE1C21377A6D0021FA2B /* CoreDataUtility.swift in Sources */,
 				D1C771B22139A44B00806491 /* PopOverViewController.swift in Sources */,
 				D1C771BA213A222E00806491 /* TransactionTableCell.swift in Sources */,
 				D1FBCE0621377A5B0021FA2B /* AppDelegate.swift in Sources */,
+				D195537F21E6E93A0093079C /* Block+CoreDataProperties.swift in Sources */,
 				D1FBCE3521378A170021FA2B /* Transaction+CoreDataClass.swift in Sources */,
 				D1FBCE1821377A6D0021FA2B /* API.swift in Sources */,
 				D1FBCE3A2137916E0021FA2B /* DetailViewController.swift in Sources */,
-				D1FBCE2721378A060021FA2B /* Block+CoreDataProperties.swift in Sources */,
 				D1FBCE1921377A6D0021FA2B /* BaseViewController.swift in Sources */,
+				D195537B21E6E85B0093079C /* Favorite+CoreDataProperties.swift in Sources */,
 				D1C771AE2139818F00806491 /* DropDownAnimationController.swift in Sources */,
 				D1C771A82138DDDB00806491 /* BlockoneLab.xcdatamodeld in Sources */,
 				D1FBCE402137FD100021FA2B /* BlockTableCell.swift in Sources */,
+				D195537D21E6E8650093079C /* Favorite+CoreDataClass.swift in Sources */,
 				D1FBCE1721377A6D0021FA2B /* ServiceManager.swift in Sources */,
 				D1C771B021398ED900806491 /* DropDownPresentationController.swift in Sources */,
 				D1FBCE1A21377A6D0021FA2B /* SplitViewController.swift in Sources */,
@@ -634,9 +660,10 @@
 		D1C771A62138DDDA00806491 /* BlockoneLab.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D195537721E6E6B40093079C /* BlockoneLab_19.1.1.xcdatamodel */,
 				D1C771A72138DDDA00806491 /* BlockoneLab.xcdatamodel */,
 			);
-			currentVersion = D1C771A72138DDDA00806491 /* BlockoneLab.xcdatamodel */;
+			currentVersion = D195537721E6E6B40093079C /* BlockoneLab_19.1.1.xcdatamodel */;
 			path = BlockoneLab.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

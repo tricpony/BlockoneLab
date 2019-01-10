@@ -24,7 +24,8 @@ class DetailViewController: BaseViewController {
     @IBOutlet weak var transSwitchBanner: UIView!
     @IBOutlet weak var masterCanvas: UIView!
     @IBOutlet weak var toggleSwitch: UISwitch!
-    
+    @IBOutlet weak var favoritesNavBarItem: UIBarButtonItem!
+
     @IBAction func presentTransactions(_ sender: Any) {
         let toggleSwitch = sender as? UISwitch
         
@@ -157,6 +158,23 @@ class DetailViewController: BaseViewController {
         
     }
     
+    @IBAction func toggleStatusFavorite(_ sender: Any) {
+        
+        if (self.block == nil) {
+            return
+        }
+        
+        if self.block?.isFavorite() == true {
+            self.managedObjectContext.delete((self.block?.favorite)!)
+            self.favoritesNavBarItem.image = UIImage.init(named: "star-empty")
+        }else{
+            let fav = Favorite.mr_createEntity(in: self.managedObjectContext)!
+            self.block?.favorite = fav
+            self.favoritesNavBarItem.image = UIImage.init(named: "star-filled")
+        }
+        self.managedObjectContext.mr_saveToPersistentStoreAndWait()
+    }
+
     // MARK: - Storyboard
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
