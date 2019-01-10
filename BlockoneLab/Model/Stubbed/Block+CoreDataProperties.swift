@@ -30,6 +30,8 @@ extension Block {
     @NSManaged public var refBlockPrefix: Int64
     @NSManaged public var blockInfo: BlockchainInfo?
     @NSManaged public var transactions: NSSet?
+    @NSManaged public var favorite: Favorite?
+    @NSManaged public var stale: Bool
 
 }
 

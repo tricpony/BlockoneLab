@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KjD-3Q-AnZ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KjD-3Q-AnZ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Split View Controller-->
         <scene sceneID="wXf-nB-cZ6">
             <objects>
-                <splitViewController id="KjD-3Q-AnZ" customClass="SplitViewController" customModule="SimpsonsCast" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="KjD-3Q-AnZ" customClass="SplitViewController" customModule="BlockoneLab" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <connections>
                         <segue destination="ldp-YQ-zhN" kind="relationship" relationship="detailViewController" id="O2I-sr-z7w"/>
@@ -34,6 +34,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="K6b-Oh-Dkq" kind="relationship" relationship="viewControllers" id="FN9-v0-uFo"/>
+                        <segue destination="19F-7Z-2ck" kind="relationship" relationship="viewControllers" id="hlw-fZ-sGt"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJ5-Iz-TdA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -58,8 +59,18 @@
             </objects>
             <point key="canvasLocation" x="81" y="-72"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="Aom-6x-83s">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="FavoritesNavStackScene" storyboardName="Favorites" id="19F-7Z-2ck" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="SsD-EI-via"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mP2-NJ-Dy5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="737" y="-382"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="icon_search" width="16" height="16"/>
+        <image name="icon_search" width="30" height="30"/>
     </resources>
 </document>

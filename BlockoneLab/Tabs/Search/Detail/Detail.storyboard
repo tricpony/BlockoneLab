@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Wp-UE-V93">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Wp-UE-V93">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +29,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8De-jj-Qts">
-                                <rect key="frame" x="169.5" y="507" width="37" height="37"/>
+                                <rect key="frame" x="169" y="507" width="37" height="37"/>
                             </activityIndicatorView>
                             <view contentMode="scaleToFill" verticalHuggingPriority="222" translatesAutoresizingMaskIntoConstraints="NO" id="T1s-sw-BxE" userLabel="Master Canvas">
                                 <rect key="frame" x="25" y="84" width="325" height="233.5"/>
@@ -242,11 +241,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DtM-xY-Fql"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gWv-PU-6WS"/>
+                    <navigationItem key="navigationItem" id="gWv-PU-6WS">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="star-empty" id="U3a-JZ-RVq">
+                            <connections>
+                                <action selector="toggleStatusFavorite:" destination="hzq-XN-ScK" id="NPO-Ns-IvH"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="approvalDateLabel" destination="V9S-qr-pIN" id="NVJ-RZ-qxG"/>
                         <outlet property="blockNbrLabel" destination="ue4-z7-T07" id="lyh-4Y-4CQ"/>
                         <outlet property="emptySelectionLabel" destination="abF-2g-dQ4" id="TuM-op-9ax"/>
+                        <outlet property="favoritesNavBarItem" destination="U3a-JZ-RVq" id="n0S-fI-JxG"/>
                         <outlet property="hashLabel" destination="B59-Hl-WQf" id="nQb-fo-Ss8"/>
                         <outlet property="masterCanvas" destination="T1s-sw-BxE" id="pra-es-dBC"/>
                         <outlet property="pinWheel" destination="8De-jj-Qts" id="FYa-xJ-yzY"/>
@@ -293,5 +299,6 @@
     </scenes>
     <resources>
         <image name="matte_background_320x480" width="320" height="480"/>
+        <image name="star-empty" width="30" height="30"/>
     </resources>
 </document>

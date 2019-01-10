@@ -19,7 +19,8 @@ class CoreDataUtility {
     }
     
     class func fetchRequestForAllBlocks(ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
-        let fetchRequest = Block.mr_createFetchRequest(in: ctx)
+        let q = self.equalPredicate(key: "stale", value: false)
+        let fetchRequest = Block.mr_requestAll(with: q, in: ctx)
         let sortOrder = NSSortDescriptor.init(key: "blockTimestamp", ascending: false)
         
         fetchRequest.sortDescriptors = [sortOrder]
@@ -28,7 +29,8 @@ class CoreDataUtility {
     
     class func fetchRequestForBlocksContaining(searchTerm: String, ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
         let q = self.containsTypePredicate(key: "producer", value: searchTerm)
-        let fetchRequest = Block.mr_requestAll(with: q, in: ctx)
+        let rq = self.equalPredicate(key: "stale", value: false)
+        let fetchRequest = Block.mr_requestAll(with: NSCompoundPredicate.init(andPredicateWithSubpredicates: [q,rq]), in: ctx)
         let sortOrder = NSSortDescriptor.init(key: "producer", ascending: true)
         
         fetchRequest.sortDescriptors = [sortOrder]
@@ -44,6 +46,14 @@ class CoreDataUtility {
         return fetchRequest
     }
     
+    class func fetchedRequestForAllFavorites(ctx: NSManagedObjectContext) -> NSFetchRequest<NSFetchRequestResult> {
+        let fetchRequest = Favorite.mr_createFetchRequest();
+        let sortOrder = NSSortDescriptor.init(key: "createDate", ascending: true)
+        
+        fetchRequest.sortDescriptors = [sortOrder]
+        return fetchRequest
+    }
+
     class func fetchBlockChainInfo(in ctx: NSManagedObjectContext) -> BlockchainInfo? {
         var info: BlockchainInfo? = nil
         info = BlockchainInfo.mr_findFirst(in: ctx)
@@ -60,6 +70,12 @@ class CoreDataUtility {
         let qualifier = self.equalPredicate(key: "transactionID", value: hash)
         
         return Transaction.mr_findFirst(with: qualifier, in: inContext)!
+    }
+    
+    class func fetchNewFavorites(inContext: NSManagedObjectContext) -> [NSManagedObject] {
+        let qualifier = self.equalPredicate(key: "block.stale", value: false)
+        
+        return Favorite.mr_findAll(with: qualifier, in: inContext) ?? []
     }
     
     // MARK: - Pre-fabbed predicates

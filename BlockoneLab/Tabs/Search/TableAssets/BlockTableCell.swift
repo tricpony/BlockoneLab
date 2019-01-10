@@ -10,7 +10,8 @@ import UIKit
 
 class BlockTableCell: UITableViewCell {
     static let cell_id = "BlockCellID"
-
+    var wantsCountBadge = true
+    
     @IBOutlet weak var producerLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var statusLabel: UILabel!
@@ -23,6 +24,11 @@ class BlockTableCell: UITableViewCell {
     }
 
     func drawCountBadge() {
+        if !wantsCountBadge {
+            self.countBackgroundView.isHidden = true
+            return
+        }
+        
         let desiredLineWidth:CGFloat = 1.5
         let hw:CGFloat = desiredLineWidth/2
         let circlePath = UIBezierPath(ovalIn: self.countBackgroundView.bounds.insetBy(dx: hw, dy: hw))

@@ -87,6 +87,15 @@ class SearchViewController: BaseViewController, NSFetchedResultsControllerDelega
         self.performGetBlockChainInfoService()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let sizeClass = BaseViewController.sizeClass()
+        if (sizeClass.vertical == .regular) && (sizeClass.horizontal == .compact) {
+            (self.splitViewController as! SplitViewController).isOnFavorites = false
+        }
+    }
+
     func setupSearchController(shouldEnable: Bool) {
         if !shouldEnable {return}
         
