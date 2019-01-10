@@ -93,6 +93,12 @@ class DetailViewController: BaseViewController {
             }
         }
         
+        if safeBlock.isFavorite() == false {
+            self.favoritesNavBarItem.image = UIImage.init(named: "star-empty")
+        }else{
+            self.favoritesNavBarItem.image = UIImage.init(named: "star-filled")
+        }
+
         self.fillBlockDataLabels()
     }
     
